@@ -186,7 +186,7 @@
                 <form method="POST" action="{{ route('logout',null,false) }}">
                     @csrf
 
-                    <x-jet-responsive-nav-link href="{{ route('logout',,null,false) }}"
+                    <x-jet-responsive-nav-link href="{{ route('logout',null,false) }}"
                                    onclick="event.preventDefault();
                                     this.closest('form').submit();">
                         {{ __('Log Out') }}

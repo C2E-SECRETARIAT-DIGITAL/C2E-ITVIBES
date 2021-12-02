@@ -11,20 +11,19 @@ class HttpsProtocol {
     {
         
         $url = $request->url();
-
-        dump($_SERVER);
         
         if(env("APP_ENV") == "production"){
-            $result = explode("://",$url);
 
-            dump($result);
-            dd($result[0] == "http");
+            if($_SERVER[HTTP_X_FORWARDED_PROTO] == "https"){
 
-            if($result[0] == "http"){
+                $result = explode("://",$url);
+                
                 $secure_url = "https://" . $result[1];
+                
                 return redirect($secure_url);
+
             }
-        }
+        }   
 
         return $next($request); 
     }

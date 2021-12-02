@@ -14,7 +14,7 @@ class HttpsProtocol {
             }
 
             dump($request->secure());
-            dd(env("APP_ENV"));
+            dd(env("APP_URL"));
 
             return $next($request); 
     }

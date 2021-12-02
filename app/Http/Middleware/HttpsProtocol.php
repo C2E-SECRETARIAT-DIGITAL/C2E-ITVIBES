@@ -13,9 +13,16 @@ class HttpsProtocol {
         if(env("APP_ENV") == "production"){
             $result = explode("://",$url);
             if($result[0] == "http"){
-                return redirect()->secure($url);
+
+                $secure_url = "https://" . $result[1];
+
+                dump($secure_url);
+
+                // return redirect(secure_url);
             }
         }
+
+        dd();
 
         return $next($request); 
     }

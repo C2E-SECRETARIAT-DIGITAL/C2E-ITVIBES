@@ -8,11 +8,13 @@ class HttpsProtocol {
     public function handle($request, Closure $next)
     {
 
-            dd($request->secure());
+            // return redirect($to = null, $status = 302, $headers = [], $https = null);
+
+            dd($request->secure($request->getRequestUri()));
 
             if(env("APP_ENV") == "production"){
                 if (!$request->secure()) {
-                    return redirect()->secure($request->getRequestUri());
+                    return redirect()->back($request->getRequestUri());
                 }
             }
 

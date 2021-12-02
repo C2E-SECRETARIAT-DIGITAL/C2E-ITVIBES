@@ -71,7 +71,7 @@
         <qrcode-drop-zone></qrcode-drop-zone>
 
         <div class="flex items-center justify-center h-32 py-4">
-            <form action="{{route('qrcode.Soumission')}}" method="POST">
+            <form action="{{route('qrcode.Soumission',null,false)}}" method="POST">
                 @csrf
                 <input id="Qrcodevalue"  name='qrcodeValue' type="hidden">
                 <button v-if="seen" type="submit" class="px-3 py-2 font-bold text-white bg-indigo-800 rounded-md">

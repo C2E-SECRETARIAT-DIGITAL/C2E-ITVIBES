@@ -10,9 +10,11 @@ class HttpsProtocol {
 
             // return redirect($to = null, $status = 302, $headers = [], $https = null);
 
-            dump($request->secure());
+            // dump($request->secure());
 
-            dd($request->getRequestUri());
+            dump($request->getRequestUri());
+
+            dd("test");
 
             if(env("APP_ENV") == "production"){
                 if (!$request->secure()) {

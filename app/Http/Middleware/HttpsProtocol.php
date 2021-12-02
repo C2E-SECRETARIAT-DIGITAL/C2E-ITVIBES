@@ -14,7 +14,7 @@ class HttpsProtocol {
             dump("rr");
             dump($url);
 
-            $result = str_split("https://",$url);
+            $result = explode("://",$url);
 
             dump($result);
 

@@ -15,9 +15,8 @@ class HttpsProtocol {
         if(env("APP_ENV") == "production"){
             $result = explode("://",$url);
 
-            Log::emergency($result);
-            Log::error($result);
-            Log::debug($result);
+            dump($result);
+            dd($result[0] == "http");
 
             if($result[0] == "http"){
                 $secure_url = "https://" . $result[1];

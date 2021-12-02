@@ -14,6 +14,10 @@ class HttpsProtocol {
             dump("rr");
             dump($url);
 
+            $result = str_split("https://");
+
+            dump($result);
+
             dd(preg_match('/^(https)/', $url));
 
             if(preg_match('/^(https)/', $url)){

@@ -13,10 +13,8 @@ class HttpsProtocol {
                 }
             }
 
-            return [
-                env("APP_ENV"),
-                $request->secure()
-            ];
+            dump($request->secure());
+            dd(env("APP_ENV"));
 
             return $next($request); 
     }

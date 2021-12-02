@@ -13,6 +13,11 @@ class HttpsProtocol {
                 }
             }
 
+            return [
+                env("APP_ENV"),
+                $request->secure()
+            ];
+
             return $next($request); 
     }
 }

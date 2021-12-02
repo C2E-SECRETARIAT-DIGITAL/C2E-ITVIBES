@@ -12,7 +12,7 @@ class HttpsProtocol {
 
             // dump($request->secure());
 
-            dump($request->getRequestUri());
+            dump(url()->full());
 
             dd("test");
 

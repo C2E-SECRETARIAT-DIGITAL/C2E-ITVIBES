@@ -14,7 +14,7 @@ class HttpsProtocol {
             $result = explode("://",$url);
             if($result[0] == "http"){
                 $secure_url = "https://" . $result[1];
-                return redirect(secure_url);
+                return redirect($secure_url);
             }
         }
 

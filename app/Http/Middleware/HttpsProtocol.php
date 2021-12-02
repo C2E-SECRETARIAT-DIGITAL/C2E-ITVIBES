@@ -8,26 +8,11 @@ class HttpsProtocol {
     public function handle($request, Closure $next)
     {
 
-            // return redirect($to = null, $status = 302, $headers = [], $https = null);
-
-            // dump($request->secure());
-
-            \URL::forceScheme('https'); 
-
-            dump(url()->full());
-
-            dd("test");
+            $url = url()->full();
 
             if(env("APP_ENV") == "production"){
-                if (!$request->secure()) {
-                    return redirect()->back($request->getRequestUri());
-                }
+                return redirect()->secure($url);
             }
-
-            dump(config("APP_ENV"));
-            dump(config("APP_URL"));
-            dump($request->secure());
-            dd(env("APP_URL"));
 
             return $next($request); 
     }

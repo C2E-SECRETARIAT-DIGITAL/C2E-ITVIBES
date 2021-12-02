@@ -5,26 +5,26 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center flex-shrink-0">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('dashboard',null,false) }}">
                         <x-jet-application-mark class="block w-auto h-9" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('dashboard',null,false) }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('create.student') }}" :active="request()->routeIs('create.student')">
+                    <x-jet-nav-link href="{{ route('create.student',null,false) }}" :active="request()->routeIs('create.student')">
                         {{ __('Etudiant') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ url('liste.student') }}" :active="request()->routeIs('liste.student')">
+                    <x-jet-nav-link href="{{ url('liste.student',null,false) }}" :active="request()->routeIs('liste.student')">
                         {{ __('Liste') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('excel.view') }}" :active="request()->routeIs('excel.view')">
+                    <x-jet-nav-link href="{{ route('excel.view',null,false) }}" :active="request()->routeIs('excel.view')">
                         {{ __('Gestionnaire') }}
                     </x-jet-nav-link>
                 </div>

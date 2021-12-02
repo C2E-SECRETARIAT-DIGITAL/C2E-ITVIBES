@@ -10,7 +10,7 @@ class HttpsProtocol {
 
             $url = url()->full();
 
-            $pattern = "/^http/";
+            $pattern = "/^http:/";
 
             if(preg_match($pattern, $url)){
                 dump("http detected");

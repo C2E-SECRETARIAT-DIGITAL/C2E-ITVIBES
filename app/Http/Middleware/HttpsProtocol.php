@@ -13,6 +13,7 @@ class HttpsProtocol {
                 }
             }
 
+            dd(env("APP_ENV"));
             dump($request->secure());
             dd(env("APP_URL"));
 

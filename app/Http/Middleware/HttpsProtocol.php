@@ -7,30 +7,17 @@ class HttpsProtocol {
 
     public function handle($request, Closure $next)
     {
-
         
-            $url =$request->url() ;
-            $pattern = "/^(https)/";
-            dump("rr");
-            dump($url);
-
+        $url =$request->url();
+        
+        if(env("APP_ENV") == "production"){
             $result = explode("://",$url);
-
-            dump($result);
-
-            dd(preg_match('/^(https)/', $url));
-
-            if(preg_match('/^(https)/', $url)){
-                dump("https detected");
-            }
-
-            dd();
-
-            if(env("APP_ENV") == "production"){
+            if($result[0] == "http"){
                 return redirect()->secure($url);
             }
+        }
 
-            return $next($request); 
+        return $next($request); 
     }
 }
 ?>

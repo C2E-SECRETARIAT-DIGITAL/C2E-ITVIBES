@@ -14,7 +14,7 @@ class HttpsProtocol {
         
         if(env("APP_ENV") == "production"){
 
-            if($_SERVER[HTTP_X_FORWARDED_PROTO] == "https"){
+            if($_SERVER["HTTP_X_FORWARDED_PROTO"] == "http"){
 
                 $result = explode("://",$url);
                 

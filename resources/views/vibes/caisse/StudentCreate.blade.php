@@ -12,8 +12,8 @@
             
             <div class="flex justify-between">
 
-                <div class="px-12 py-4 ">
-                    <span class="px-6 text-2xl font-bold">Vibes-Ticket</span>
+                <div class="px-4 py-4 mx:px-12 ">
+                    <span class="text-base font-bold md:text-2xl md:px-6">Vibes-Ticket</span>
                 </div>
 
                 @if ($message = Session::get('success'))
@@ -36,9 +36,9 @@
                             <div class="px-4 py-2 -mx-3">
                                 <div class="mx-3">
                                     <span class="font-bold text-green-500 dark:text-green-400"
-                                    >Bienvenue à l'IT-VIBES </span
+                                    >IT-VIBES </span
                                     >
-                                    <p class="text-sm text-gray-600 dark:text-gray-200">
+                                    <p class="text-xs text-gray-600 md:text-sm dark:text-gray-200">
                                     {{$message}}
                                     </p>
                                 </div>
@@ -61,7 +61,7 @@
                   <div class="overflow-hidden shadow sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                       <div class="grid grid-cols-6 gap-6">
-                         <div class="col-span-2 md:col-span-2 sm:col-span-3">
+                         <div class="col-span-6 md:col-span-2 sm:col-span-3">
                             <label for="matricule" class="block text-sm font-medium text-gray-700">Matricule</label>
                             <input type="text" name="matricule" id="matricule" value="{{old('matricule')}}" autocomplete="matricule" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             @error('matricule')
@@ -69,7 +69,7 @@
                           @enderror
                           </div>
             
-                          <div class="col-span-2 md:col-span-2 sm:col-span-3">
+                          <div class="col-span-6 md:col-span-2 sm:col-span-3">
                             <label for="nom" class="block text-sm font-medium text-gray-700">Nom</label>
                             <input type="text" name="nom" id="nom" autocomplete="nom" value="{{old('nom')}}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             @error('nom')
@@ -85,15 +85,15 @@
                             @enderror
                           </div>
                        
-                          <div class="col-span-3 md:col-span-2 sm:col-span-3">
-                            <label for="filiere" class="block text-sm font-medium text-gray-700">Filiere</label>
+                          <div class="col-span-6 md:col-span-2 sm:col-span-3">
+                            <label for="filiere" class="block text-sm font-medium text-gray-700">Filier ou Niveau </label>
                             <input type="text" name="filiere" id="filiere" autocomplete="filiere" value="{{old('filiere')}}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             @error('filiere')
                              <div class="font-semibold text-center text-red-600">{{ $errors->first('filiere') }}  </div>
                             @enderror
                           </div>
           
-                          <div class="col-span-3 md:col-span-2 sm:col-span-3">
+                          <div class="col-span-6 md:col-span-2 sm:col-span-3">
                             <label for="email" class="block text-sm font-medium text-gray-700">Adresse Email</label>
                             <input type="text" name="email" id="email" autocomplete="email" value="{{old('email')}}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             @error('email')
@@ -101,7 +101,7 @@
                             @enderror
                           </div>
 
-                          <div class="col-span-3 md:col-span-2 sm:col-span-3">
+                          <div class="col-span-6 md:col-span-2 sm:col-span-3">
                             <label for="contacts" class="block text-sm font-medium text-gray-700">contact</label>
                             <input type="tel" name="contacts" id="contacts" autocomplete="contacts" value="{{old('contacts')}}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             @error('contacts')

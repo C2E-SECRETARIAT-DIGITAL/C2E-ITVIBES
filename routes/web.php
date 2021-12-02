@@ -34,5 +34,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('Gestionnaire', 'App\Http\Controllers\ExcelController@index')->name('excel.view');
     Route::post('importExcel', 'App\Http\Controllers\ExcelController@importExcel')->name('importExcel');
+    Route::get('exportExcel/{type}', 'App\Http\Controllers\ExcelController@exportExcel')->name('exportExcel');
+
+
+    Route::post('DeleteAllStudent', 'App\Http\Controllers\ExcelController@DeleteAllStudent')->name('delete.allStudent');
 });
 

@@ -1,9 +1,12 @@
 <div>
     <div>
 
-        <div class="grid grid-cols-6 gap-6 ">
+        <p>
+            Recherche 
+        </p>
+        <div class="grid grid-cols-6 gap-6 px-4">
 
-            <div class="col-span-2 md:col-span-2 sm:col-span-3">
+            <div class="col-span-6 md:col-span-2 ">
                 <label for="matricule" class="block text-sm font-medium text-gray-700">Nom</label>
                 <input type="text" name="matricule" id="matricule" wire:model.debounce500ms='searchName' autocomplete="matricules" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 @error('matricule')
@@ -12,7 +15,7 @@
                
             </div>
 
-            <div class="col-span-2 md:col-span-2 sm:col-span-3">
+            <div class="col-span-6 md:col-span-2 ">
                 <label for="matricule" class="block text-sm font-medium text-gray-700">Matricule</label>
                 <input type="text" name="matricule" id="matricule" wire:model.debounce500ms='searchMaticule' autocomplete="matricules" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 @error('matricule')
@@ -23,7 +26,7 @@
 
             
 
-            <div class="col-span-2 mt-6 text-xl font-bold md:col-span-2 sm:col-span-3 ">
+            <div class="col-span-6 mt-6 text-xl font-bold text-center md:col-span-2 ">
               <p>
                 {{$etudiant_restaurer}} / {{$etudiant_non_restaurer}} restauré(e)s
               </p>
@@ -38,13 +41,11 @@
             <div class="flex flex-col w-full">
             <div class="w-full -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="inline-block w-full min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                <div class="w-full overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                <div class="w-full border-b border-gray-200 shadow overflow-x sm:rounded-lg">
                     <table class="min-w-full divide-y divide-gray-800">
                     <thead class="bg-gray-100">
                         <tr>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            N°
-                        </th>
+                        
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                             Matricule
                         </th>
@@ -65,9 +66,7 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($etudiants as $key => $etudiant)
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-xl font-thin text-gray-900">{{$key+1}}</div>
-                            </td>
+                            
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                 

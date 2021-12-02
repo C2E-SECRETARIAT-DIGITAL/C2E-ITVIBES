@@ -12,7 +12,7 @@ class HttpsProtocol {
 
             dump($request->secure());
 
-            dd($request->secure($request->getRequestUri()));
+            dd($request->getRequestUri());
 
             if(env("APP_ENV") == "production"){
                 if (!$request->secure()) {

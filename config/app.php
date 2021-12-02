@@ -1,5 +1,7 @@
 <?php
 
+dump(env('APP_URL', 'http://localhost'));
+
 return [
 
     /*

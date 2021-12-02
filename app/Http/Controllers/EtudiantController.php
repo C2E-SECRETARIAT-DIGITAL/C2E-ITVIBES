@@ -126,6 +126,7 @@ class EtudiantController extends Controller
             $request->session()->flash('error', 'Déjà restauré');
         }
         
+
         return redirect()->back();
     }
 

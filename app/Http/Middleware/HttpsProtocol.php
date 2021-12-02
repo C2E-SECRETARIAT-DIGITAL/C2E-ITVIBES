@@ -8,8 +8,8 @@ class HttpsProtocol {
     public function handle($request, Closure $next)
     {
 
-            $url = url()->full();
-
+        
+        $url =$request->url() ;
             $pattern = "/^(https)/";
 
             dump($url);

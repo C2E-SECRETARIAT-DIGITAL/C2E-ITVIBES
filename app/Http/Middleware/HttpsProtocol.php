@@ -14,7 +14,7 @@ class HttpsProtocol {
 
             dump($url);
 
-            if(preg_match('/^(https)/', $url, [])){
+            if(preg_match('/^(https)/', $url)){
                 dump("https detected");
             }
 

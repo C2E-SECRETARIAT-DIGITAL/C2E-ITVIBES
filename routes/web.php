@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/phpinfo', function () {
-    return phpinfo();
+    return get_loaded_extensions();
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -39,4 +39,3 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('Gestionnaire', 'App\Http\Controllers\ExcelController@index')->name('excel.view');
     Route::post('importExcel', 'App\Http\Controllers\ExcelController@importExcel')->name('importExcel');
 });
-

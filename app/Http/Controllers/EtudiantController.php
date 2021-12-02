@@ -149,8 +149,8 @@ class EtudiantController extends Controller
           
         $pdf = PDF::loadView('vibes.Ticket', $data);
     
-        // return $pdf->download($etudiant->nom.' '.$etudiant->prenoms.'.pdf');
+        return $pdf->download($etudiant->nom.' '.$etudiant->prenoms.'.pdf');
 
-        return $pdf->stream($etudiant->nom.' '.$etudiant->prenoms.'.pdf');
+        // return $pdf->stream($etudiant->nom.' '.$etudiant->prenoms.'.pdf');
     }
 }

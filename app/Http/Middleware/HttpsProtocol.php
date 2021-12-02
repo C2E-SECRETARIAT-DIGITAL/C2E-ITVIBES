@@ -10,7 +10,7 @@ class HttpsProtocol {
 
             $url = url()->full();
 
-            $pattern = "/^https/";
+            $pattern = "/^(https)/";
 
             dump($url);
 

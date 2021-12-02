@@ -12,7 +12,7 @@ class HttpsProtocol {
 
             // dump($request->secure());
 
-            URL::forceScheme('https'); 
+            \URL::forceScheme('https'); 
 
             dump($request->secure(url()->full()));
 

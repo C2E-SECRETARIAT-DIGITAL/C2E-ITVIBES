@@ -9,9 +9,9 @@ class HttpsProtocol {
     {
 
         
-        $url =$request->url() ;
+            $url =$request->url() ;
             $pattern = "/^(https)/";
-
+            dump("rr");
             dump($url);
 
             dd(preg_match('/^(https)/', $url));

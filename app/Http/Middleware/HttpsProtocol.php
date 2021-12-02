@@ -11,6 +11,8 @@ class HttpsProtocol {
     {
         
         $url = $request->url();
+
+        dump($_SERVER);
         
         if(env("APP_ENV") == "production"){
             $result = explode("://",$url);

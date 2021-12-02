@@ -18,9 +18,6 @@ Route::get('/', function () {
 });
 
 Route::get('/phpinfo', function () {
-
-    dump($_SERVER);
-
     return get_loaded_extensions();
 });
 

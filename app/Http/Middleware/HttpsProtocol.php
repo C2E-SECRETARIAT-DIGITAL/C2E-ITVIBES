@@ -10,10 +10,12 @@ class HttpsProtocol {
 
             $url = url()->full();
 
-            $pattern = "/^http:/";
+            $pattern = "/^https/";
+
+            dump($url);
 
             if(preg_match($pattern, $url)){
-                dump("http detected");
+                dump("https detected");
             }
 
             dd();

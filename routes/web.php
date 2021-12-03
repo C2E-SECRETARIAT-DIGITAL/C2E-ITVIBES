@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/phpinfo', function () {
+    return get_loaded_extensions();
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -34,6 +38,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('Gestionnaire', 'App\Http\Controllers\ExcelController@index')->name('excel.view');
     Route::post('importExcel', 'App\Http\Controllers\ExcelController@importExcel')->name('importExcel');
+
     Route::get('exportExcel/{type}', 'App\Http\Controllers\ExcelController@exportExcel')->name('exportExcel');
 
 
@@ -44,5 +49,3 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('send-mail','App\Http\Controllers\EtudiantController@sendTicketMail')->name('send.TicketMail');
 
 });
-
-

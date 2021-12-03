@@ -56,7 +56,7 @@
 
             <div class="mt- md:mt-0 md:col-span-2">
                 
-                <form action="{{route('store.student')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('store.student',null,false)}}" method="POST" enctype="multipart/form-data">
                   @csrf
                   <div class="overflow-hidden shadow sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">

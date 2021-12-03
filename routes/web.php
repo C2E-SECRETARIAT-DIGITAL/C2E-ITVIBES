@@ -38,5 +38,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
 
     Route::post('DeleteAllStudent', 'App\Http\Controllers\ExcelController@DeleteAllStudent')->name('delete.allStudent');
+
+    // Affaire de mail
+
+    Route::get('send-mail','App\Http\Controllers\EtudiantController@sendTicketMail')->name('send.TicketMail');
+
 });
+
 

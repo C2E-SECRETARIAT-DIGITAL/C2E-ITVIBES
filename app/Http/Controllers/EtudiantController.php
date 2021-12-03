@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TicketMail;
 use App\Models\Etudiant;
 use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Mail;
 use PDF;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -153,5 +155,36 @@ class EtudiantController extends Controller
         return $pdf->download($etudiant->nom.' '.$etudiant->prenoms.'.pdf');
 
         // return $pdf->stream($etudiant->nom.' '.$etudiant->prenoms.'.pdf');
+    }
+
+
+    public function sendTicketMail()
+    {
+        $email = 'ndaregisrichmond@gmail.com';
+   
+        $maildata = [
+            'title' => 'Laravel 8|7 Mail Sending Example with Markdown',
+            'url' => 'https://www.positronx.io'
+        ];
+        
+
+        $m = Crypt::encryptString("BONJOUR");
+        $t = Crypt::decryptString($m);
+        //$qr = base64_encode(QrCode::format('svg')->size(250)->errorCorrection('H')->generate($m));
+
+        $qr = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate($m));
+        $data = [
+            'title' => 'IT-VIBES',
+            'date' => date('d-m-Y à h:i:s A'),
+            'person' => '$etudiant->nom'.' '.'$etudiant->prenoms',
+            'qr_code' => $qr
+        ];
+          
+        $pdf = PDF::loadView('vibes.Ticket', $data);
+
+
+        Mail::to($email)->send(new TicketMail($maildata,$pdf, $data['person']));
+   
+        dd("Mail has been sent successfully");
     }
 }

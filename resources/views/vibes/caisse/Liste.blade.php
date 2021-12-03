@@ -5,14 +5,14 @@
         </h2>
     </x-slot>
 
-    <div class="h-screen px-2 py-12">
-       <div class="grid h-full grid-cols-6 gap-8 " >
+    <div class="px-2 py-4 md:h-screen md:py-12">
+       <div class="h-full gap-8 md:grid md:grid-cols-6 " >
 
-        <div class="h-full col-span-2 px-2 ">
+        <div class="col-span-2 px-2 md:h-full ">
             @livewire('etudiant.qrcode')
         </div>
 
-        <div class="col-span-4 font-bold">
+        <div class="font-bold md:col-span-4">
             @livewire('etudiant.liste')    
         </div>
 

@@ -12,8 +12,9 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+
                     <x-jet-nav-link href="{{ route('dashboard',null,false) }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Acceuil') }}
                     </x-jet-nav-link>
 
                     <x-jet-nav-link href="{{ route('create.student',null,false) }}" :active="request()->routeIs('create.student')">
@@ -127,7 +128,7 @@
                                 <x-jet-dropdown-link href="{{ route('logout',null,false) }}"
                                          onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Se deconnecter') }}
                                 </x-jet-dropdown-link>
                             </form>
                         </x-slot>
@@ -151,7 +152,19 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('dashboard',null,false) }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('Acceuil') }}
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('create.student',null,false) }}" :active="request()->routeIs('create.student')">
+                {{ __('Etudiant') }}
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('liste.student',null,false) }}" :active="request()->routeIs('liste.student')">
+                {{ __('Liste') }}
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('excel.view',null,false) }}" :active="request()->routeIs('excel.view')">
+                {{ __('Gestionnaire') }}
             </x-jet-responsive-nav-link>
         </div>
 
@@ -189,7 +202,7 @@
                     <x-jet-responsive-nav-link href="{{ route('logout',null,false) }}"
                                    onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Se deconnecter') }}
                     </x-jet-responsive-nav-link>
                 </form>
 

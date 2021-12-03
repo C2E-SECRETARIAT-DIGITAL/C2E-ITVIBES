@@ -5,26 +5,27 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center flex-shrink-0">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('dashboard',null,false) }}">
                         <x-jet-application-mark class="block w-auto h-9" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+
+                    <x-jet-nav-link href="{{ route('dashboard',null,false) }}" :active="request()->routeIs('dashboard')">
                         {{ __('Acceuil') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('create.student') }}" :active="request()->routeIs('create.student')">
+                    <x-jet-nav-link href="{{ route('create.student',null,false) }}" :active="request()->routeIs('create.student')">
                         {{ __('Etudiant') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('liste.student') }}" :active="request()->routeIs('liste.student')">
+                    <x-jet-nav-link href="{{ route('liste.student',null,false) }}" :active="request()->routeIs('liste.student')">
                         {{ __('Liste') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('excel.view') }}" :active="request()->routeIs('excel.view')">
+                    <x-jet-nav-link href="{{ route('excel.view',null,false) }}" :active="request()->routeIs('excel.view')">
                         {{ __('Gestionnaire') }}
                     </x-jet-nav-link>
                 </div>
@@ -55,12 +56,12 @@
                                     </div>
 
                                     <!-- Team Settings -->
-                                    <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
+                                    <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id,false) }}">
                                         {{ __('Team Settings') }}
                                     </x-jet-dropdown-link>
 
                                     @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                                        <x-jet-dropdown-link href="{{ route('teams.create') }}">
+                                        <x-jet-dropdown-link href="{{ route('teams.create',null,false) }}">
                                             {{ __('Create New Team') }}
                                         </x-jet-dropdown-link>
                                     @endcan
@@ -108,7 +109,7 @@
                                 {{ __('Manage Account') }}
                             </div>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            <x-jet-dropdown-link href="{{ route('profile.show',null,false) }}">
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
 
@@ -121,10 +122,10 @@
                             <div class="border-t border-gray-100"></div>
 
                             <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
+                            <form method="POST" action="{{ route('logout',null,false) }}">
                                 @csrf
 
-                                <x-jet-dropdown-link href="{{ route('logout') }}"
+                                <x-jet-dropdown-link href="{{ route('logout',null,false) }}"
                                          onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                     {{ __('Se deconnecter') }}
@@ -150,19 +151,19 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+            <x-jet-responsive-nav-link href="{{ route('dashboard',null,false) }}" :active="request()->routeIs('dashboard')">
                 {{ __('Acceuil') }}
             </x-jet-responsive-nav-link>
 
-            <x-jet-responsive-nav-link href="{{ route('create.student') }}" :active="request()->routeIs('create.student')">
+            <x-jet-responsive-nav-link href="{{ route('create.student',null,false) }}" :active="request()->routeIs('create.student')">
                 {{ __('Etudiant') }}
             </x-jet-responsive-nav-link>
 
-            <x-jet-responsive-nav-link href="{{ route('liste.student') }}" :active="request()->routeIs('liste.student')">
+            <x-jet-responsive-nav-link href="{{ route('liste.student',null,false) }}" :active="request()->routeIs('liste.student')">
                 {{ __('Liste') }}
             </x-jet-responsive-nav-link>
 
-            <x-jet-responsive-nav-link href="{{ route('excel.view') }}" :active="request()->routeIs('excel.view')">
+            <x-jet-responsive-nav-link href="{{ route('excel.view',null,false) }}" :active="request()->routeIs('excel.view')">
                 {{ __('Gestionnaire') }}
             </x-jet-responsive-nav-link>
         </div>
@@ -184,7 +185,7 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
-                <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                <x-jet-responsive-nav-link href="{{ route('profile.show',null,false) }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
                 </x-jet-responsive-nav-link>
 
@@ -195,10 +196,10 @@
                 @endif
 
                 <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('logout',null,false) }}">
                     @csrf
 
-                    <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                    <x-jet-responsive-nav-link href="{{ route('logout',null,false) }}"
                                    onclick="event.preventDefault();
                                     this.closest('form').submit();">
                         {{ __('Se deconnecter') }}
@@ -214,12 +215,12 @@
                     </div>
 
                     <!-- Team Settings -->
-                    <x-jet-responsive-nav-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
+                    <x-jet-responsive-nav-link href="{{ route('teams.show', Auth::user()->currentTeam->id, null) }}" :active="request()->routeIs('teams.show')">
                         {{ __('Team Settings') }}
                     </x-jet-responsive-nav-link>
 
                     @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                        <x-jet-responsive-nav-link href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">
+                        <x-jet-responsive-nav-link href="{{ route('teams.create',null,false) }}" :active="request()->routeIs('teams.create')">
                             {{ __('Create New Team') }}
                         </x-jet-responsive-nav-link>
                     @endcan

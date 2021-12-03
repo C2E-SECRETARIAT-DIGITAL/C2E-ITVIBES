@@ -85,7 +85,7 @@
 
                         <div class="flex items-center justify-center md:h-32">
 
-                            <form style="" action="{{ route('importExcel') }}" class="" method="post" enctype="multipart/form-data">
+                            <form style="" action="{{ route('importExcel',null,false) }}" class="" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <input type="file" class="text-xs md:text-xl" name="import_file" />
                                 @error('import_file')

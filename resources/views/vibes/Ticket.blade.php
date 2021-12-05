@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hi</title>
+    <title>C2E (IT Vibes) </title>
 
     <style>
         body{

@@ -1,13 +1,15 @@
 @component('mail::message')
 # {{ $maildata['title'] }}
 
-Your message body.
+Bonjour {{ $maildata['etudiant']->nom }} {{ $maildata['etudiant']->prenoms  }} !
 
-@component('mail::button', ['url' => $maildata['url']])
+Le bureau du C2E tient à vous remercier pour l'achat de votre ticket de participation à l'IT VIBES 2021.
+Vous trouverez votre ticket de participation en pièce jointe.
 
-Verify
-@endcomponent
+Rendez-vous le samedi 18 décembre !
 
-Thanks,<br>
-{{ config('app.name') }}
+Cordialement,<br>
+
+Le Bureau du C2E
+
 @endcomponent

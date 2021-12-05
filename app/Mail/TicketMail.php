@@ -34,7 +34,7 @@ class TicketMail extends Mailable
     {
         return $this->markdown('emails.TicketMail')
                 ->with('maildata', $this->maildata)
-                ->subject("Titre")
+                ->subject("Ticket de l'activité It-Vibes")
                 ->attachData($this->pdf->output(), $this->pdf_nom.".pdf");
     }
 }

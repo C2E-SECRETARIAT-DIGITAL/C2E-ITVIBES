@@ -56,12 +56,27 @@ class EtudiantController extends Controller
         
         $et = etudiant::create($validateData);
 
-       
         // ici on met le message de confirmation en session
         $request->session()->flash('success', 'Enregistrement effectué avec succès');
-        
-        
 
+        // Test si l'envoie de mail ne fonctionne pas
+
+        try{
+
+            $this->sendTicketMail2($et);
+
+        } catch(Exception $e){
+
+            // En cas d'erreur en local on ne fait rien sauf un flash
+
+            if(env("APP_ENV") == "local"){
+
+                $request->session()->flash('danger', 'Envoi du ticket par mail impossible');
+
+            }
+
+        }
+        
        return redirect()->back();
         
     }
@@ -186,5 +201,33 @@ class EtudiantController extends Controller
         Mail::to($email)->send(new TicketMail($maildata,$pdf, $data['person']));
    
         dd("Mail has been sent successfully");
+    }
+
+    public function sendTicketMail2($etudiant)
+    {   
+        $maildata = [
+            'title' => 'Ticket IT VIBES 2021',
+            'etudiant' => $etudiant
+        ];
+
+        $m = Crypt::encryptString($etudiant->matricule);
+        
+        $qr = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate($m));
+
+        $data = [
+            'title' => 'IT-VIBES',
+            'date' => date('d-m-Y à h:i:s A'),
+            'person' => '$etudiant->nom'.' '.'$etudiant->prenoms',
+            'qr_code' => $qr
+        ];
+
+        $pdf_name = '$etudiant->nom'.' '.'$etudiant->prenoms';
+          
+        $pdf = PDF::loadView('vibes.Ticket', $data);
+
+        $email = $etudiant->email;
+
+        Mail::to($email)->send(new TicketMail($maildata, $pdf, $pdf_name));
+         
     }
 }

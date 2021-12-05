@@ -217,11 +217,11 @@ class EtudiantController extends Controller
         $data = [
             'title' => 'IT-VIBES',
             'date' => date('d-m-Y à h:i:s A'),
-            'person' => '$etudiant->nom'.' '.'$etudiant->prenoms',
+            'person' => $etudiant->nom.' '.$etudiant->prenoms,
             'qr_code' => $qr
         ];
 
-        $pdf_name = '$etudiant->nom'.' '.'$etudiant->prenoms';
+        $pdf_name = $etudiant->nom.' '.$etudiant->prenoms;
           
         $pdf = PDF::loadView('vibes.Ticket', $data);
 

@@ -39,7 +39,7 @@
 
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif --}}
+                @endif
 
                 <x-jet-button class="ml-4">
                     {{ __('Se connecter') }}

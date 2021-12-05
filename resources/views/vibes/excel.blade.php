@@ -98,13 +98,13 @@
 
                         <div class="items-center justify-center gap-4 md:flex ">
 
-                            <a href="{{ route('exportExcel', 'xlsx') }}">
+                            <a href="{{ route('exportExcel', 'xlsx', false) }}">
                                 <button class="px-4 py-2 mt-5 font-bold text-white bg-green-600 rounded-md">Exporter Excel xlsx</button>
                             </a>
-                            <a href="{{ route('exportExcel', 'csv') }}">
+                            <a href="{{ route('exportExcel', 'csv', false) }}">
                                 <button class="px-4 py-2 mt-5 font-bold text-white bg-green-600 rounded-md">Exporter CSV</button>
                             </a>
-                            <form style="" action="{{ route('delete.allStudent') }}" class="" method="post" enctype="multipart/form-data">
+                            <form id="viderForm" style="" action="{{ route('delete.allStudent',null,false) }}" class="" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <button class="px-4 py-2 mt-5 font-bold text-white bg-red-600 rounded-md"> Vider la liste </button>
                             </form>
@@ -121,4 +121,27 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+        let viderForm = document.querySelector('#viderForm');
+
+        viderForm.addEventListener("submit", function(e){
+
+            e.preventDefault();
+
+            result = confirm("Voulez vous vraiment vider la liste des étudiants ?");
+
+            if(result){
+
+                result = confirm("Vraiment ???");
+
+                if (result){
+                    e.target.submit();
+                }
+            }
+
+        });
+
+    </script>
 </x-app-layout>

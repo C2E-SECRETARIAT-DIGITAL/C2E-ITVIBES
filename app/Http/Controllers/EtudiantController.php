@@ -61,21 +61,21 @@ class EtudiantController extends Controller
 
         // Test si l'envoie de mail ne fonctionne pas
 
-        try{
+        // try{
 
-            $this->sendTicketMail2($et);
+        //     $this->sendTicketMail2($et);
 
-        } catch(Exception $e){
+        // } catch(Exception $e){
 
-            // En cas d'erreur en local on ne fait rien sauf un flash
+        //     // En cas d'erreur en local on ne fait rien sauf un flash
 
-            if(env("APP_ENV") == "local"){
+        //     if(env("APP_ENV") == "local"){
 
-                $request->session()->flash('danger', 'Envoi du ticket par mail impossible');
+        //         $request->session()->flash('danger', 'Envoi du ticket par mail impossible');
 
-            }
+        //     }
 
-        }
+        // }
         
        return redirect()->back();
         
@@ -132,17 +132,17 @@ class EtudiantController extends Controller
         
         $etudiant = Etudiant::where('matricule', $codeDecrypte)->first();
 
-        if(!$etudiant->restauration)
+        if(!$etudiant->entree)
         {
-            $etudiant->restauration = true ;
+            $etudiant->entree = true ;
             $etudiant->save();
 
-            $request->session()->flash('success', 'Bon appetit');
+            $request->session()->flash('success', 'Bienvenue à l\'IT Vibes 2024');
         }
         else{
-            $request->session()->flash('error', 'Déjà restauré');
+            $request->session()->flash('error', 'Déjà scanné !!!');
         }
-        
+            
 
         return redirect()->back();
     }

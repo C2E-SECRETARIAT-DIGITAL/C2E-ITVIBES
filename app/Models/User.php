@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_name',
     ];
 
     /**
@@ -40,6 +41,11 @@ class User extends Authenticatable
         'two_factor_recovery_codes',
         'two_factor_secret',
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_name', 'name');
+    }
 
     /**
      * The attributes that should be cast.
@@ -58,4 +64,12 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function hasRole($role)
+    {
+        if ($this->role) {
+            return $this->role->name === $role;
+        }
+        return false;
+    }
 }

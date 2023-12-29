@@ -22,8 +22,8 @@ class Liste extends Component
                                 ->orderBy('created_at', 'DESC')
                                 ->paginate(6),
 
-            'etudiant_restaurer'  => etudiant::where('restauration', true)->count(),
-            'etudiant_non_restaurer'  => etudiant::all()->count()
+            'etudiant_entree'  => etudiant::where('entree', true)->count(),
+            'etudiant_non_entree'  => etudiant::all()->count()
         ]);
     }
     

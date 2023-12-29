@@ -25,6 +25,7 @@ class CreateEtudiantsTable extends Migration
 
             $table->boolean('restauration')->default(false);
             $table->boolean('cinema')->default(false);
+            $table->boolean('entree')->default(false);
 
             
             $table->timestamps();

@@ -28,7 +28,7 @@
 
             <div class="col-span-6 mt-6 text-xl font-bold text-center md:col-span-2 ">
               <p>
-                {{$etudiant_restaurer}} / {{$etudiant_non_restaurer}} restauré(e)s
+                {{$etudiant_entree}} / {{$etudiant_non_entree}} entré(e)s
               </p>
             </div>
 
@@ -88,11 +88,19 @@
                                 {{$etudiant->contacts}} 
                             </td>
             
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-6 py-4 whitespace-nowrap ">
                             
-                                <div class="flex gap-4">
+                                <div>
 
-                                    <div>   
+                                    <div class="ml-3">
+                                        @if(!$etudiant->entree) 
+                                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"  viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" > <path d="M580 2565 l0 -2555 190 0 190 0 0 2370 0 2370 1253 -1 c688 0 1248 -2 1242 -4 -5 -2 -307 -56 -670 -120 -363 -63 -684 -120 -713 -126 l-52 -10 2 -1997 3 -1996 985 -243 c542 -133 995 -245 1008 -248 l22 -5 0 365 0 365 60 0 60 0 0 -365 0 -365 190 0 190 0 0 2560 0 2560 -1980 0 -1980 0 0 -2555z m3580 1950 l0 -235 -60 0 -60 0 0 235 0 235 60 0 60 0 0 -235z m0 -2005 l0 -1200 -60 0 -60 0 0 1200 0 1200 60 0 60 0 0 -1200z m-1713 108 c55 -50 72 -164 36 -235 -75 -144 -243 -73 -243 103 0 51 36 122 74 146 40 24 98 19 133 -14z"/> </g> </svg>
+                                        @else
+                                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"  viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#0000ff" > <path d="M580 2565 l0 -2555 190 0 190 0 0 2370 0 2370 1253 -1 c688 0 1248 -2 1242 -4 -5 -2 -307 -56 -670 -120 -363 -63 -684 -120 -713 -126 l-52 -10 2 -1997 3 -1996 985 -243 c542 -133 995 -245 1008 -248 l22 -5 0 365 0 365 60 0 60 0 0 -365 0 -365 190 0 190 0 0 2560 0 2560 -1980 0 -1980 0 0 -2555z m3580 1950 l0 -235 -60 0 -60 0 0 235 0 235 60 0 60 0 0 -235z m0 -2005 l0 -1200 -60 0 -60 0 0 1200 0 1200 60 0 60 0 0 -1200z m-1713 108 c55 -50 72 -164 36 -235 -75 -144 -243 -73 -243 103 0 51 36 122 74 146 40 24 98 19 133 -14z"/> </g> </svg>
+                                        @endif
+                                    </div>
+
+                                    <!-- <div>   
                                         @if(!$etudiant->restauration) 
                                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"></path></svg>
                                         @else
@@ -108,7 +116,7 @@
                                              <svg class="w-6 h-6 text-amber-600 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path></svg>
                                         @endif
                                         
-                                    </div>
+                                    </div> -->
 
                                 </div>
                             </td>

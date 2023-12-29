@@ -1,0 +1,1 @@
+<img src="{{asset('img/C2E.jpeg')}}"  class="w-20 h-10 " alt=" C2E">

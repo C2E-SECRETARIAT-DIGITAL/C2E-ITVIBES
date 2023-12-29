@@ -39,7 +39,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('/vibes/user/create', 'App\Http\Controllers\UserController@createU')->name('create.user');
     Route::post('/vibes/user/store', 'App\Http\Controllers\UserController@storeU')->name('store.user');
 
-
     Route::get('/vibes/student/get/ticket/{id}', 'App\Http\Controllers\EtudiantController@generatePDF')->name('get.ticket');
     Route::post('/vibes/students/soumission', 'App\Http\Controllers\EtudiantController@Soumission')->name('qrcode.Soumission');
 
@@ -57,7 +56,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('/vibes/user/liste', 'App\Http\Controllers\UserController@index')->name('liste.user');
     
     Route::post('DeleteUser/{id}', 'App\Http\Controllers\UserController@DeleteUser')->name('delete.user');
-
     // Affaire de mail
 
     Route::get('send-mail','App\Http\Controllers\EtudiantController@sendTicketMail')->name('send.TicketMail');

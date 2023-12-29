@@ -104,6 +104,8 @@
         <div class="business-1">
             <div class="mybusiness busi-1">
                 <img src="data:image/png;base64, {!! $qr_code !!}">
+
+                <!-- {!! $qr_code !!} -->
                 <div  style="text-align: right; margin-right:10px; color:gray">
     
                     
@@ -112,8 +114,7 @@
             <div class="mybusiness busi-2">
                 <div style=" text-align: center;">
                     <p>
-                        <img src="{{asset('img/ItVibesLogoshort.jpeg')}}" style="height: 100px; weight:100px" alt="ItVibes">
-                        
+                        <img src="{{public_path().'/img/itvibes_alpha.png'}}" style="height: 100px; weight:100px" alt="ItVibes">                        
                     </p>
                     <p style="font-weight: bold">
                         {{ $person }}

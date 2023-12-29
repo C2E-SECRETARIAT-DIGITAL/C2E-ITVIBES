@@ -36,7 +36,6 @@ class Liste extends Component
     public function getTicket(int $id )
     {
         $etudiant = etudiant::find($id);
-
         dd($etudiant);
     }
 }

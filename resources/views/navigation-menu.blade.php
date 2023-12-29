@@ -17,6 +17,7 @@
                         {{ __('Acceuil') }}
                     </x-jet-nav-link>
 
+<<<<<<< HEAD
                     @if (auth()->user() && auth()->user()->role_name === 'Administrateur')
                         <x-jet-nav-link href="{{ route('create.user',null,false) }}" :active="request()->routeIs('create.user')">
                             {{ __('Utilisateur') }}
@@ -43,7 +44,6 @@
                             {{ __('Liste') }}
                         </x-jet-nav-link>
                     @endif
-                                   
                 </div>
             </div>
 

@@ -6,7 +6,8 @@ use Livewire\Component;
 
 class Qrcode extends Component
 {
-    public $qrcodeValue = '' ; 
+
+    public $qrcodeValue = '' ;
     
     public function render()
     {

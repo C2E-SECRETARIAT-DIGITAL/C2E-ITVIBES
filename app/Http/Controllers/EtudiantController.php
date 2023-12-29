@@ -43,7 +43,6 @@ class EtudiantController extends Controller
     public function store(Request $request)
     {
 
-        
         $validateData = request()->validate([
             'nom' => 'required',
             'prenoms' => 'required',
@@ -61,69 +60,10 @@ class EtudiantController extends Controller
 
         // Test si l'envoie de mail ne fonctionne pas
 
-        // try{
-
-        //     $this->sendTicketMail2($et);
-
-        // } catch(Exception $e){
-
-        //     // En cas d'erreur en local on ne fait rien sauf un flash
-
-        //     if(env("APP_ENV") == "local"){
-
-        //         $request->session()->flash('danger', 'Envoi du ticket par mail impossible');
-
-        //     }
-
-        // }
+        $this->sendTicketMail($et);
         
-       return redirect()->back();
+        return redirect()->back();
         
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Etudiant  $etudiant
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Etudiant $etudiant)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Etudiant  $etudiant
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Etudiant $etudiant)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Etudiant  $etudiant
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Etudiant $etudiant)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Etudiant  $etudiant
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Etudiant $etudiant)
-    {
-        //
     }
 
     public function Soumission(Request $request)
@@ -142,22 +82,16 @@ class EtudiantController extends Controller
         else{
             $request->session()->flash('error', 'Déjà scanné !!!');
         }
-            
-
         return redirect()->back();
     }
 
     public function generatePDF(int $id)
     {
-
-        $etudiant = etudiant::find($id);
-        
-        
+        $etudiant = etudiant::find($id);    
         $m = Crypt::encryptString($etudiant->matricule);
-        $t = Crypt::decryptString($m);
-        //$qr = base64_encode(QrCode::format('svg')->size(250)->errorCorrection('H')->generate($m));
-
+        
         $qr = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate($m));
+       
         $data = [
             'title' => 'IT-VIBES',
             'date' => date('d-m-Y à h:i:s A'),
@@ -165,53 +99,21 @@ class EtudiantController extends Controller
             'qr_code' => $qr
         ];
           
-        $pdf = PDF::loadView('vibes.Ticket', $data);
+        $pdf = PDF::loadView('vibes.Ticket', $data);        
+        // return view('vibes.Ticket', $data);
     
         return $pdf->download($etudiant->nom.' '.$etudiant->prenoms.'.pdf');
 
-        // return $pdf->stream($etudiant->nom.' '.$etudiant->prenoms.'.pdf');
     }
 
-
-    public function sendTicketMail()
-    {
-        $email = 'ndaregisrichmond@gmail.com';
-   
-        $maildata = [
-            'title' => 'Laravel 8|7 Mail Sending Example with Markdown',
-            'url' => 'https://www.positronx.io'
-        ];
-        
-
-        $m = Crypt::encryptString("BONJOUR");
-        $t = Crypt::decryptString($m);
-        //$qr = base64_encode(QrCode::format('svg')->size(250)->errorCorrection('H')->generate($m));
-
-        $qr = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate($m));
-        $data = [
-            'title' => 'IT-VIBES',
-            'date' => date('d-m-Y à h:i:s A'),
-            'person' => '$etudiant->nom'.' '.'$etudiant->prenoms',
-            'qr_code' => $qr
-        ];
-          
-        $pdf = PDF::loadView('vibes.Ticket', $data);
-
-
-        Mail::to($email)->send(new TicketMail($maildata,$pdf, $data['person']));
-   
-        dd("Mail has been sent successfully");
-    }
-
-    public function sendTicketMail2($etudiant)
+    public function sendTicketMail($etudiant)
     {   
         $maildata = [
-            'title' => 'Ticket IT VIBES 2021',
+            'title' => 'Ticket IT VIBES 2024',
             'etudiant' => $etudiant
         ];
 
         $m = Crypt::encryptString($etudiant->matricule);
-        
         $qr = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate($m));
 
         $data = [
@@ -221,13 +123,21 @@ class EtudiantController extends Controller
             'qr_code' => $qr
         ];
 
-        $pdf_name = $etudiant->nom.' '.$etudiant->prenoms;
+        $pdf_name = $etudiant->nom.' '.$etudiant->prenoms.'.pdf';
           
         $pdf = PDF::loadView('vibes.Ticket', $data);
 
         $email = $etudiant->email;
 
+        // return view('emails.TicketMail');
         Mail::to($email)->send(new TicketMail($maildata, $pdf, $pdf_name));
+
          
+    }
+
+    public function test($id)
+    {   
+        $et = etudiant::find($id);
+        $this->sendTicketMail($et);
     }
 }

@@ -46,7 +46,6 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class, 'role_name', 'name');
     }
-
     /**
      * The attributes that should be cast.
      *
@@ -64,7 +63,6 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
     public function hasRole($role)
     {
         if ($this->role) {

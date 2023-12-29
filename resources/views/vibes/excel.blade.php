@@ -16,7 +16,6 @@
                     </div>
 
                     <div class="text-center md:col-span-5 mt-12">
-
                         @if ($message = Session::get('success'))
                             <div class="flex justify-center py-4">
                                 
@@ -112,7 +111,16 @@
                     </div>
 
                 </div>
+<<<<<<< HEAD
 
+=======
+                
+                
+                
+
+
+                
+>>>>>>> a58d6b5be4d118972b673ccfccdec1f9a70088df
             </div>
         </div>
     </div>

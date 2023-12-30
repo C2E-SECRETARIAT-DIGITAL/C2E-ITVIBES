@@ -66,11 +66,8 @@
                 </a>
 
                 <x-jet-button class="ml-4">
-<<<<<<< HEAD
                     {{ __('Créer') }}
-=======
                     {{ __('S\'enregistrer') }}
->>>>>>> a58d6b5be4d118972b673ccfccdec1f9a70088df
                 </x-jet-button>
             </div>
         </form>

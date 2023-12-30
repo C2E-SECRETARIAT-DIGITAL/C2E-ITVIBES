@@ -39,7 +39,7 @@
 
             <div class="grid grid-cols-8 md:px-28">
                 <div class="px-8 text-center md:col-span-3">
-                    <img src="{{asset('img/ItVibesLogo.jpeg')}}"  class="h-10 md:h-96 md:w-96" alt="ItVibes">
+                    <img src="{{asset('img/itvibeslogo.png')}}"  class="h-10 md:h-96 md:w-96" alt="ItVibes">
                     
                 </div>
 

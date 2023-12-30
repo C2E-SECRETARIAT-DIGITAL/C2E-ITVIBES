@@ -25,6 +25,9 @@
                             Pseudo
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                            Rôle
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                             Action
                         </th>
 
@@ -49,6 +52,10 @@
                             
                             <td class="px-6 py-4 font-normal whitespace-nowrap">
                                 {{$user->name}} 
+                            </td>
+
+                            <td class="px-6 py-4 font-normal whitespace-nowrap">
+                                {{$user->role_name}} 
                             </td>
 
 

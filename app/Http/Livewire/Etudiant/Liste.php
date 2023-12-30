@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Etudiant;
 use App\Models\Etudiant;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Route;
 
 class Liste extends Component
 {
@@ -13,9 +14,11 @@ class Liste extends Component
     public $searchName ='';
     public $searchMaticule = '';
     public $searchStatus = '';
+    public $routeName = "";
     
     public function render()
     {
+        $this->routeName = Route::currentRouteName();
         return view('livewire.etudiant.liste', [
             'etudiants'  => etudiant::where('nom', 'LIKE', "%{$this->searchName}%")
                                 ->Where('matricule', 'LIKE', "%{$this->searchMaticule}%")

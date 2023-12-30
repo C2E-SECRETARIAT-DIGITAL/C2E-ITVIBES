@@ -1,0 +1,98 @@
+<style>
+    .ticket {
+        width: 700px;
+        height: 300px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7.75%;
+        
+        position: relative;
+    }
+
+    .ticket .left {
+        width: 29.30%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5%;
+    }
+
+    h4 {
+        margin-top: 60px;
+        margin-bottom: 0;
+
+        color: #41008A;
+        font-family: 'Myriad Pro', sans-serif;
+        font-size: 20px;
+    }
+
+    .ticket .qrcode {
+        margin-top: 10px;
+        width: 110px;
+        height: 110px;
+
+        background-color: black;
+    }
+
+    .left .logos {
+        width: 100%;
+        height: 20%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .img {
+        width: 30px;
+        height: 30px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ticket .right {
+        margin-top: 30px;
+        width: 60%;
+        height: 20%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    h5 {
+        margin: 0;
+        color: #ffffff;
+        font-family: 'BEASIGNE', sans-serif;
+        font-size: 20px;
+    }
+
+
+</style>
+<div class="ticket">
+    <img src="./fond.png" width="100%" alt="fondTicket" style="z-index:-10;position: absolute;">
+
+    <div class="left">
+        <h4>No. XXXX</h4>
+        <div class="qrcode"></div>
+        <div class="logos">
+            <div class="img"><img width="100%" src="./c2elogo.png" alt=""></div>
+            <div class="img"><img width="100%" src="./itvibeslogo.png" alt="">
+            </div><div class="img"><img width="100%" src="./c2elogo.png" alt=""></div>
+            <div class="img"><img width="100%" src="./itvibeslogo.png" alt=""></div>
+        </div>
+    </div>
+    <div class="right">
+        <h5>NOM</h5>
+        <h5>PRENOM</h5>
+    </div>
+</div>

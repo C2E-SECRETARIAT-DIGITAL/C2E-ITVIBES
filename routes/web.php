@@ -35,6 +35,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     // Routes  Enregistrement d'étudiant
     Route::get('/vibes/student/create', 'App\Http\Controllers\EtudiantController@create')->name('create.student');
     Route::post('/vibes/students/store', 'App\Http\Controllers\EtudiantController@store')->name('store.student');
+    Route::get('/vibes/students/sendticket/{id}', 'App\Http\Controllers\EtudiantController@sendTicket')->name('ticket.send');
 
     Route::get('/vibes/user/create', 'App\Http\Controllers\UserController@createU')->name('create.user');
     Route::post('/vibes/user/store', 'App\Http\Controllers\UserController@storeU')->name('store.user');

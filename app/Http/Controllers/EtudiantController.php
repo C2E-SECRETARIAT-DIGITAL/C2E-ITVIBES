@@ -52,8 +52,15 @@ class EtudiantController extends Controller
             'email' => 'required|email'
         ]);
         
-        
         $et = etudiant::create($validateData);
+        $tombola = 0;
+        do {
+            $tombola = rand(1, 200);
+            $tombola_exist = etudiant::where('tombola', $tombola)->first() != null;
+        } while ($tombola_exist);
+
+        $et->tombola = $tombola;
+        $et->save();
 
         // ici on met le message de confirmation en session
         $request->session()->flash('success', 'Enregistrement effectué avec succès');
@@ -69,8 +76,10 @@ class EtudiantController extends Controller
     public function Soumission(Request $request)
     {
         $codeDecrypte = Crypt::decryptString($request->qrcodeValue);
+
         
         $etudiant = Etudiant::where('matricule', $codeDecrypte)->first();
+        // dd($etudiant);
 
         if(!$etudiant->entree)
         {
@@ -90,12 +99,21 @@ class EtudiantController extends Controller
         $etudiant = etudiant::find($id);    
         $m = Crypt::encryptString($etudiant->matricule);
         
-        $qr = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate($m));
+        $qr = base64_encode(QrCode::format('svg')->size(110)->errorCorrection('H')->generate($m));
        
+        $tombola = $etudiant->tombola;
+        if($tombola < 10){
+            $tombola = '00' . $tombola;
+        } elseif ($tombola < 100) {
+            $tombola = '0' . $tombola;
+        }
+
         $data = [
             'title' => 'IT-VIBES',
             'date' => date('d-m-Y à h:i:s A'),
-            'person' => $etudiant->nom.' '.$etudiant->prenoms,
+            'nom' => $etudiant->nom,
+            'prenoms' => $etudiant->prenoms,
+            'tombola' => $tombola,
             'qr_code' => $qr
         ];
           
@@ -114,12 +132,21 @@ class EtudiantController extends Controller
         ];
 
         $m = Crypt::encryptString($etudiant->matricule);
-        $qr = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->generate($m));
+        $qr = base64_encode(QrCode::format('svg')->size(110)->errorCorrection('H')->generate($m));
+
+        $tombola = $etudiant->tombola;
+        if($tombola < 10){
+            $tombola = '00' . $tombola;
+        } elseif ($tombola < 100) {
+            $tombola = '0' . $tombola;
+        }
 
         $data = [
             'title' => 'IT-VIBES',
             'date' => date('d-m-Y à h:i:s A'),
-            'person' => $etudiant->nom.' '.$etudiant->prenoms,
+            'nom' => $etudiant->nom,
+            'prenoms' => $etudiant->prenoms,
+            'tombola' => $tombola,
             'qr_code' => $qr
         ];
 
@@ -135,9 +162,16 @@ class EtudiantController extends Controller
          
     }
 
-    public function test($id)
+    public function sendTicket($id, Request $request)
     {   
         $et = etudiant::find($id);
-        $this->sendTicketMail($et);
+        try {
+            $this->sendTicketMail($et);
+            $request->session()->flash('success', 'Email envoyé avec succès.');
+
+        } catch (\Throwable $th) {
+            $request->session()->flash('error', 'Envoie de l\'email impossible.');
+        }
+        return redirect()->back();
     }
 }

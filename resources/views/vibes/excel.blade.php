@@ -12,7 +12,7 @@
                 <div class="grid p-4 md:grid-cols-8 ">
 
                     <div class="px-8 w-96 text-center md:col-span-3">
-                        <img src="{{asset('img/ItVibesLogoshort.jpeg')}}" class="w-96 h-64 md:h-96 md:w-96" alt="ItVibes">
+                        <img src="{{asset('img/itvibeslogo.png')}}" class="w-96 h-64 md:h-96 md:w-96" alt="ItVibes">
                     </div>
 
                     <div class="text-center md:col-span-5 mt-12">
@@ -111,16 +111,7 @@
                     </div>
 
                 </div>
-<<<<<<< HEAD
-
-=======
                 
-                
-                
-
-
-                
->>>>>>> a58d6b5be4d118972b673ccfccdec1f9a70088df
             </div>
         </div>
     </div>

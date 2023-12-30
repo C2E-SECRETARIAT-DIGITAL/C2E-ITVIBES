@@ -119,7 +119,13 @@
                             </div>
                         </div>
                 </form>
+
               </div>
+
+              <div class="font-bold md:col-span-4">
+                    @livewire('etudiant.liste')    
+              </div>
+              
             </div>
         </div>
     </div>

@@ -20,6 +20,17 @@
             </div>
 
             <div class="mt-4">
+                <x-jet-label for="role_name" value="{{ __('Rôle') }}" />
+                <select id="role_name" name="role_name" class="block w-full mt-1">
+                    @isset($roles)
+                        @foreach($roles as $id => $name)
+                            <option value="{{ $name }}">{{ $name }}</option>
+                        @endforeach
+                    @endisset
+                </select>
+            </div>
+
+            <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Mot de passe') }}" />
                 <x-jet-input id="password" class="block w-full mt-1" type="password" name="password" required autocomplete="new-password" />
             </div>
@@ -55,6 +66,7 @@
                 </a>
 
                 <x-jet-button class="ml-4">
+                    {{ __('Créer') }}
                     {{ __('S\'enregistrer') }}
                 </x-jet-button>
             </div>

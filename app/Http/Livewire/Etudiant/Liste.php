@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Etudiant;
 use App\Models\Etudiant;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Route;
 
 class Liste extends Component
 {
@@ -13,17 +14,19 @@ class Liste extends Component
     public $searchName ='';
     public $searchMaticule = '';
     public $searchStatus = '';
+    public $routeName = "";
     
     public function render()
     {
+        $this->routeName = Route::currentRouteName();
         return view('livewire.etudiant.liste', [
             'etudiants'  => etudiant::where('nom', 'LIKE', "%{$this->searchName}%")
                                 ->Where('matricule', 'LIKE', "%{$this->searchMaticule}%")
                                 ->orderBy('created_at', 'DESC')
                                 ->paginate(6),
 
-            'etudiant_restaurer'  => etudiant::where('restauration', true)->count(),
-            'etudiant_non_restaurer'  => etudiant::all()->count()
+            'etudiant_entree'  => etudiant::where('entree', true)->count(),
+            'etudiant_non_entree'  => etudiant::all()->count()
         ]);
     }
     
@@ -36,7 +39,6 @@ class Liste extends Component
     public function getTicket(int $id )
     {
         $etudiant = etudiant::find($id);
-
         dd($etudiant);
     }
 }

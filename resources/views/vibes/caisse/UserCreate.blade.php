@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Enregistrement Etudiants') }}
+            {{ __('Enregistrement Utilisateurs') }}
         </h2>
     </x-slot>
 
@@ -13,7 +13,7 @@
             <div class="flex justify-between">
 
                 <div class="px-4 py-4 mx:px-12 ">
-                    <span class="text-base font-bold md:text-2xl md:px-6">Vibes-Ticket</span>
+                    <span class="text-base font-bold md:text-2xl md:px-6">Utilisateurs</span>
                 </div>
 
                 @if ($message = Session::get('success'))
@@ -56,61 +56,62 @@
 
             <div class="mt- md:mt-0 md:col-span-2">
                 
-                <form action="{{route('store.student',null,false)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('store.user',null,false)}}" method="POST" enctype="multipart/form-data">
                   @csrf
                   <div class="overflow-hidden shadow sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                       <div class="grid grid-cols-6 gap-6">
+
                          <div class="col-span-6 md:col-span-2 sm:col-span-3">
-                            <label for="matricule" class="block text-sm font-medium text-gray-700">Matricule</label>
-                            <input type="text" name="matricule" id="matricule" value="{{old('matricule')}}" autocomplete="matricule" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            @error('matricule')
-                           <div class="font-semibold text-center text-red-600">{{ $errors->first('matricule') }}  </div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Pseudonyme</label>
+                            <input type="text" name="name" id="name" value="{{old('matricule')}}" autocomplete="name" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            @error('name')
+                           <div class="font-semibold text-center text-red-600">{{ $errors->first('name') }}  </div>
                           @enderror
-                          </div>
+                         </div>
             
+
                           <div class="col-span-6 md:col-span-2 sm:col-span-3">
-                            <label for="nom" class="block text-sm font-medium text-gray-700">Nom</label>
-                            <input type="text" name="nom" id="nom" autocomplete="nom" value="{{old('nom')}}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            @error('nom')
-                           <div class="font-semibold text-center text-red-600">{{ $errors->first('nom') }}  </div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" name="email" id="email" autocomplete="nom" value="{{old('email')}}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            @error('email')
+                           <div class="font-semibold text-center text-red-600">{{ $errors->first('email') }}  </div>
                           @enderror
                           </div>
             
                           <div class="col-span-6 md:col-span-2 sm:col-span-4">
-                            <label for="prenoms" class="block text-sm font-medium text-gray-700">Prenoms</label>
-                            <input type="text" name="prenoms" id="prenoms" autocomplete="prenoms" value="{{old('prenoms')}}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            @error('prenoms')
-                             <div class="font-semibold text-center text-red-600">{{ $errors->first('prenoms') }}  </div>
+                            <label for="role_name" class="block text-sm font-medium text-gray-700">Rôle</label>
+                                <select id="role_name" name="role_name" class="block w-full mt-1">
+                                    @isset($roles)
+                                        @foreach($roles as $id => $name)
+                                            <option value="{{ $name }}">{{ $name }}</option>
+                                        @endforeach
+                                    @endisset
+                                </select>
+                            @error('role_name')
+                             <div class="font-semibold text-center text-red-600">{{ $errors->first('role_name') }}  </div>
                             @enderror
                           </div>
                        
+
                           <div class="col-span-6 md:col-span-2 sm:col-span-3">
-                            <label for="filiere" class="block text-sm font-medium text-gray-700">Filier ou Niveau </label>
-                            <input type="text" name="filiere" id="filiere" autocomplete="filiere" value="{{old('filiere')}}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            @error('filiere')
-                             <div class="font-semibold text-center text-red-600">{{ $errors->first('filiere') }}  </div>
-                            @enderror
-                          </div>
-          
-                          <div class="col-span-6 md:col-span-2 sm:col-span-3">
-                            <label for="email" class="block text-sm font-medium text-gray-700">Adresse Email</label>
-                            <input type="text" name="email" id="email" autocomplete="email" value="{{old('email')}}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            @error('email')
-                             <div class="font-semibold text-center text-red-600">{{ $errors->first('email') }}  </div>
+                            <label for="password" class="block text-sm font-medium text-gray-700">Mot de passe</label>
+                            <input type="password" name="password" id="password" autocomplete="password" value="{{old('password')}}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            @error('password')
+                             <div class="font-semibold text-center text-red-600">{{ $errors->first('password') }}  </div>
                             @enderror
                           </div>
 
                           <div class="col-span-6 md:col-span-2 sm:col-span-3">
-                            <label for="contacts" class="block text-sm font-medium text-gray-700">contact</label>
-                            <input type="tel" name="contacts" id="contacts" autocomplete="contacts" value="{{old('contacts')}}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            @error('contacts')
-                             <div class="font-semibold text-center text-red-600">{{ $errors->first('contacts') }}  </div>
+                            <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirmer le mot de passe</label>
+                            <input type="password" name="password_confirmation" id="password_confirmation" autocomplete="password_confirmation" value="{{old('password_confirmation')}}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            @error('password_confirmation')
+                             <div class="font-semibold text-center text-red-600">{{ $errors->first('password_confirmation') }}  </div>
                             @enderror
                           </div>
+
           
-                          <div class="col-span-6">
-                            
+                          <div class="col-span-6">                           
                 
                             <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
                                 <button type="submit" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -120,12 +121,12 @@
                         </div>
                 </form>
 
+                
               </div>
 
               <div class="font-bold md:col-span-4">
-                    @livewire('etudiant.liste')    
-              </div>
-              
+                    @livewire('user-list')    
+                </div>
             </div>
         </div>
     </div>

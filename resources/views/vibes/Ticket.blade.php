@@ -1,151 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>C2E (IT Vibes) </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        body{
-            margin:0px;
-            padding:0px;
-        }
+    .ticket {
+        width: 700px;
+        height: 300px;
 
-
-        .business-1{
-            padding: 30px 10px;
-            display: table;
-        }
-
-        .mybusiness{
-            width: 50%;
-            float: left;
-            padding: 5px 40px;
-            height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7.75%;
         
-            
-        }
+        position: relative;
+    }
 
-        .busi-1{
-            align-items: center;
-            padding: 150px 0px;
-            border-radius: 10px;
-        }
+    h4 {
+        position: absolute;
+        top: 35px;
+        left: 65px;
 
-        .busi-2{
-            /* background: red; */
-        }
+        color: #41008A;
+        font-family: 'Myriad Pro', sans-serif;
+        font-size: 20px;
+    }
 
-        .btn{
-            text-decoration: none;
-            font-size: 14px;
-            padding: 10px 20px;
-            border: 2px solid rgba(2, 1, 49, 0.918);
-            border-radius: 10px;  
-            
-            left: 0px;
-        }
+    .qrcode {
+        background-color: black;
+        width: 110px;
+        height: 110px;
 
-        .btn:hover{
-            color: white;
-            background:rgba(2, 1, 49, 0.918) ;
-        }
+        position: absolute;
+        top: 109px;
+        left: 58px;
+    }
 
-        .business-2{
-            padding: 10px 30px;
-            text-align: center;
-            background: rgba(2, 1, 49, 0.918);
+    .img1 {
+        width: 30px;
+        height: 30px;
 
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            border: 18px;
-        }
+        position: absolute;
+        bottom: 15px;
+        left: 40px;
+    }
 
-        .business-3{
-            padding: 30px 20px;
-            display: table;   
-        }
+    .img2 {
+        width: 30px;
+        height: 30px;
 
-        .card{
-            
-            border: 1px solid ;
-            width: 31%; 
-            /* height: 200px; */
-            border-radius: 20px;
-            display: inline-block;
-            border-radius: 10px;
-            box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2),  0 4px 4px 0 rgba(0, 0, 0, 0.2);
-            margin: 0px 1%;
-        }
+        position: absolute;
+        bottom: 15px;
+        left: 85px;
+    }
 
-        .card-div{
-            padding: 10px 20px;
-        }
-        .card-div p:first-child{
-            font-size: 28px;
-            font-weight:bold;
-        }
-        .card-end{
-            padding: 10px 20px;  
-            background: rgba(128, 128, 128, 0.11);
-            border-radius: 0px 0px 20px 20px ; 
-        }
+    .img3 {
+        width: 30px;
+        height: 30px;
 
-        .business{
-            padding: 150px 10px;
-        }
+        position: absolute;
+        bottom: 15px;
+        left: 125px;
+    }
 
-        
-    </style>
+    .img4 {
+        width: 30px;
+        height: 30px;
+
+        position: absolute;
+        bottom: 15px;
+        left: 165px;
+    }
+
+    .nom {
+        color: #ffffff;
+        font-family: 'BEASIGNE', sans-serif;
+        font-size: 20px;
+
+        position: absolute;
+        top: 105px;
+        left: 270px;
+    }
+
+    .prenoms {
+        color: #ffffff;
+        font-family: 'BEASIGNE', sans-serif;
+        font-size: 20px;
+
+        position: absolute;
+        top: 130px;
+        left: 270px;
+    }
+
+
+</style>
 </head>
 <body>
 
-    <div class="business">
+<div class="ticket">
+    <img src="{{public_path().'/img/fond.png'}}" width="100%" alt="fondTicket" style="z-index:-10;position: absolute;">
+    <!-- <img src="{{asset('img/fond.png')}}" width="100%" alt="fondTicket" style="z-index:-10;position: absolute;"> -->
 
-        <div class="business-1">
-            <div class="mybusiness busi-1">
-                <img src="data:image/png;base64, {!! $qr_code !!}">
-                <div  style="text-align: right; margin-right:10px; color:gray">
-    
-                    
-                </div>
-            </div>
-            <div class="mybusiness busi-2">
-                <div style=" text-align: center;">
-                    <p>
-                        <img src="{{asset('img/ItVibesLogoshort.jpeg')}}" style="height: 100px; weight:100px" alt="ItVibes">
-                        
-                    </p>
-                    <p style="font-weight: bold">
-                        {{ $person }}
-                    </p>
-                </div>
-                <div style="font-size: 14px">
-                    <span style="font-weight: bolder; color:gray ">Au programme</span>  :
-                    <ul>
-                        <li>Du sport (football, basketball, chasse au trésor)</li>
-                        <li>Des jeux de sociétés (échecs, scrabbles, dame)</li>
-                        <li>Des battle (danse, zouglou « woyo », karafolie…)</li>
-                        <li style="font-weight: bolder">Une bouffe party</li>
-                        <li> une soirée cinéma</li>
-                    </ul>
-                    	
-                    <p style="text-align: center">
-                        <h6> Ticket imprimé le {{ $date }} </h6>
-                    </p>
-                </div>
-                
-                
-            </div>
+        <h4>No. {{ $tombola }}</h4>
+        <div class="qrcode">
+            <img src="data:image/png;base64, {!! $qr_code !!}">
         </div>
+        <div class="img1"><img width="100%" src="{{public_path().'/img/c2elogo.png'}}" alt=""></div>
+        <!-- <div class="img1"><img width="100%" src="{{asset('img/c2elogo.png')}}" alt=""></div> -->
+        <div class="img2"><img width="100%" src="{{public_path().'/img/itvibeslogo.png'}}" alt=""></div>
+        <!-- <div class="img2"><img width="100%" src="{{asset('img/itvibeslogo.png')}}" alt=""></div> -->
+        <div class="img3"><img width="100%" src="{{public_path().'/img/c2elogo.png'}}" alt=""></div>
+        <!-- <div class="img3"><img width="100%" src="{{asset('img/c2elogo.png')}}" alt=""></div> -->
+        <div class="img4"><img width="100%" src="{{public_path().'/img/itvibeslogo.png'}}" alt=""></div>
+        <!-- <div class="img4"><img width="100%" src="{{asset('img/itvibeslogo.png')}}" alt=""></div> -->
+        <h5 class="nom">{{ $nom }}</h5>
+        <h5 class="prenoms">{{ $prenoms }}</h5>
+</div>
 
-        
-        
 
-    </div>
-
-
-    
-</body>
     
 </body>
 </html>

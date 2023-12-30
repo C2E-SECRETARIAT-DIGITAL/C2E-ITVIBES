@@ -30,16 +30,16 @@
                     @else
                         <a href="{{ route('login',null,false) }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                        @if (Route::has('register'))
+                        <!-- @if (Route::has('register'))
                             <a href="{{ route('register',null,false) }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
+                        @endif -->
                     @endauth
                 </div>
             @endif
 
             <div class="grid grid-cols-8 md:px-28">
                 <div class="px-8 text-center md:col-span-3">
-                    <img src="{{asset('img/ItVibesLogo.jpeg')}}"  class="h-10 md:h-96 md:w-96" alt="ItVibes">
+                    <img src="{{asset('img/itvibeslogo.png')}}"  class="h-10 md:h-96 md:w-96" alt="ItVibes">
                     
                 </div>
 

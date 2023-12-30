@@ -6,17 +6,16 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl sm:px-5 lg:px-8">
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
                 
-                <div class="grid grid-rows-2 p-4 md:grid-cols-8 ">
+                <div class="grid p-4 md:grid-cols-8 ">
 
-                    <div class="px-8 text-center md:col-span-3">
-                        <img src="{{asset('img/ItVibesLogo.jpeg')}}" class="w-64 h-64 md:h-96 md:w-96" alt="ItVibes">
+                    <div class="px-8 w-96 text-center md:col-span-3">
+                        <img src="{{asset('img/itvibeslogo.png')}}" class="w-96 h-64 md:h-96 md:w-96" alt="ItVibes">
                     </div>
 
-                    <div class="text-center md:col-span-5">
-
+                    <div class="text-center md:col-span-5 mt-12">
                         @if ($message = Session::get('success'))
                             <div class="flex justify-center py-4">
                                 
@@ -112,11 +111,6 @@
                     </div>
 
                 </div>
-                
-                
-                
-
-
                 
             </div>
         </div>

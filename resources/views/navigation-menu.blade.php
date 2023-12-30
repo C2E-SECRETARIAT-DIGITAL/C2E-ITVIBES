@@ -17,17 +17,32 @@
                         {{ __('Acceuil') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('create.student',null,false) }}" :active="request()->routeIs('create.student')">
-                        {{ __('Etudiant') }}
-                    </x-jet-nav-link>
+                    @if (auth()->user() && auth()->user()->role_name === 'Administrateur')
+                        <x-jet-nav-link href="{{ route('create.user',null,false) }}" :active="request()->routeIs('create.user')">
+                            {{ __('Utilisateur') }}
+                        </x-jet-nav-link>
+                    
+                        
+                        <x-jet-nav-link href="{{ route('create.student',null,false) }}" :active="request()->routeIs('create.student')">
+                            {{ __('Etudiant') }}
+                        </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('liste.student',null,false) }}" :active="request()->routeIs('liste.student')">
-                        {{ __('Liste') }}
-                    </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('liste.student',null,false) }}" :active="request()->routeIs('liste.student')">
+                            {{ __('Liste') }}
+                        </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('excel.view',null,false) }}" :active="request()->routeIs('excel.view')">
-                        {{ __('Gestionnaire') }}
-                    </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('excel.view',null,false) }}" :active="request()->routeIs('excel.view')">
+                            {{ __('Gestionnaire') }}
+                        </x-jet-nav-link>
+                    @elseif (auth()->user() && auth()->user()->role_name === 'Caissière')
+                        <x-jet-nav-link href="{{ route('create.student',null,false) }}" :active="request()->routeIs('create.student')">
+                            {{ __('Etudiant') }}
+                        </x-jet-nav-link>
+                    @elseif (auth()->user() && auth()->user()->role_name === 'Scaneur')
+                        <x-jet-nav-link href="{{ route('liste.student',null,false) }}" :active="request()->routeIs('liste.student')">
+                            {{ __('Liste') }}
+                        </x-jet-nav-link>
+                    @endif
                 </div>
             </div>
 

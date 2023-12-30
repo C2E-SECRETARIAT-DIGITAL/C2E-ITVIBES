@@ -1,0 +1,19 @@
+name: CI -> Deploy to My website
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Here is the deployment action
+      - name: Upload from public_html via FTP
+        uses: airvzxf/ftp-deployment-action@latest
+        with:
+          server: "ftp.c2e-ci.com"
+          user: "c2e-c2114752"
+          password: "fY8-*D!BDb4w@5G"
+          local_dir: "./itvibes.c2e-ci.com"
+          delete: true

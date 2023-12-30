@@ -15,5 +15,6 @@ jobs:
           server: "ftp.c2e-ci.com"
           user: "c2e-c2114752"
           password: "fY8-*D!BDb4w@5G"
-          local_dir: "./itvibes.c2e-ci.com"
+          local_dir: "./"
+          remote_dir: "./itvibes.c2e-ci.com"
           delete: true

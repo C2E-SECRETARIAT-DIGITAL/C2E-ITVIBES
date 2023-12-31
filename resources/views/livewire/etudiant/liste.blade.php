@@ -112,7 +112,7 @@
                             </td>
                             @endif
 
-                            @if ($routeName == "liste.create")
+                            @if ($routeName == "create.student")
                             <td class="flex justify-center px-6 py-6 text-sm font-medium whitespace-nowrap">
                             <form id="delForm" action="{{route('delete.etudiant', $etudiant->id, false)}}" class="flex justify-center text-sm font-medium whitespace-nowrap">
                                 

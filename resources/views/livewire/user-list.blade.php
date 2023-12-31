@@ -61,7 +61,7 @@
 
                             <td class="items-center">
                                 @if (
-                                    ($user->role_name != 'Administrateur' || $user->email != 'ephremfrancketou@gmail.com') && ($user->role_name != 'Administrateur' || $user->email != 'angeemmanuelassamoi@gmail.com'))
+                                    ($user->role_name != 'Administrateur' || $user->email != 'ephremfrancketou@gmail.com') && ($user->role_name != 'Administrateur' || $user->email != 'angeemmanuelassamoi@gmail.com') && ($user->email != auth()->user()->email))
                                     <form id="supUser" style="" action="{{ route('delete.user', $user->id, false) }}" class="items-center" method="post" enctype="multipart/form-data">
                                         {{ csrf_field() }}
                                         <button class="px-3 py-2 mt-0 font-bold text-white bg-red-600 rounded-md"> Supprimer </button>  

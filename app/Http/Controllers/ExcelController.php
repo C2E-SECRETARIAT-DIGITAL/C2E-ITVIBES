@@ -7,6 +7,7 @@ use App\Imports\EtudiantsImport;
 use App\Models\Etudiant;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use DB;
 
 
 class ExcelController extends Controller
@@ -41,7 +42,8 @@ class ExcelController extends Controller
 
     public function DeleteAllStudent(Request $request)
     {
-        Etudiant::truncate();
+        // Etudiant::truncate();
+        DB::table('etudiants')->delete();  
 
         $request->session()->flash('Warning', 'Suppression effectuée');
         return redirect()->back();

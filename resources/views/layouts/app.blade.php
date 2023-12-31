@@ -7,6 +7,8 @@
 
         <title>C2E (IT Vibes)</title>
 
+        <link rel="icon" type="image/x-icon" href="{{ asset('img/itvibeslogo.png') }}">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>

@@ -26,6 +26,7 @@ class EtudiantsImport implements ToModel
         $et->email = $row[3];
         
         $et->save();
+        EtudiantController::sendTicketMail($et);
         return $et;
     }
 }

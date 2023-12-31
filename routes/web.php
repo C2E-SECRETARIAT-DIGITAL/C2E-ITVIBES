@@ -50,6 +50,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
 
     Route::post('DeleteAllStudent', 'App\Http\Controllers\ExcelController@DeleteAllStudent')->name('delete.allStudent');
+    Route::get('DeleteEtudiant/{id}', 'App\Http\Controllers\EtudiantController@deleteEtudiant')->name('delete.etudiant');
 
 
     //User

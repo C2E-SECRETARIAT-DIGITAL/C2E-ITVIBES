@@ -68,6 +68,18 @@ class EtudiantController extends Controller
         
     }
 
+    public function deleteEtudiant(Request $request, $id){
+        $et = Etudiant::find($id);
+
+        if ($et) {
+            $et->delete();
+            $request->session()->flash('success', 'Suppression effectuée');
+            return redirect()->back();
+        } else {
+            $request->session()->flash('error', 'Suppression échouée');
+        }
+    }
+    
     public function Soumission(Request $request)
     {
         $codeDecrypte = Crypt::decryptString($request->qrcodeValue);
@@ -119,7 +131,7 @@ class EtudiantController extends Controller
 
     }
 
-    public function sendTicketMail($etudiant)
+    static public function sendTicketMail($etudiant)
     {   
         $maildata = [
             'title' => 'Ticket IT VIBES 2024',

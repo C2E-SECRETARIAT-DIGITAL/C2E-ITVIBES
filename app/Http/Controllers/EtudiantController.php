@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\TicketMail;
 use App\Models\Etudiant;
+use App\Models\Filiere;
 use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -31,7 +32,8 @@ class EtudiantController extends Controller
      */
     public function create()
     {
-        return view('vibes.caisse.StudentCreate');
+        $filieres = Filiere::pluck('name', 'id');
+        return view('vibes.caisse.StudentCreate', compact('filieres'));
     }
 
     /**
@@ -46,20 +48,13 @@ class EtudiantController extends Controller
         $validateData = request()->validate([
             'nom' => 'required',
             'prenoms' => 'required',
-            'contacts' => 'required',
-            'matricule' => 'required|unique:etudiants,matricule',
             'filiere' => 'required',
-            'email' => 'required|email'
+            'email' => 'required|unique:etudiants|email'
         ]);
         
         $et = etudiant::create($validateData);
-        $tombola = 0;
-        do {
-            $tombola = rand(1, 200);
-            $tombola_exist = etudiant::where('tombola', $tombola)->first() != null;
-        } while ($tombola_exist);
-
-        $et->tombola = $tombola;
+        $et->matricule = 'ITVIBES-' . $this->generateRandomString(8);
+        $et->tombola = $this->generateNumberTombola();
         $et->save();
 
         // ici on met le message de confirmation en session
@@ -173,5 +168,18 @@ class EtudiantController extends Controller
             $request->session()->flash('error', 'Envoie de l\'email impossible.');
         }
         return redirect()->back();
+    }
+
+    static function generateRandomString($length = 10) {
+        return substr(str_shuffle(str_repeat($x='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+    }
+
+    static function generateNumberTombola(){
+        $tombola = 0;
+        do {
+            $tombola = rand(1, 200);
+            $tombola_exist = etudiant::where('tombola', $tombola)->first() != null;
+        } while ($tombola_exist);
+        return $tombola;
     }
 }

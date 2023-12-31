@@ -81,7 +81,7 @@
             
                           <div class="col-span-6 md:col-span-2 sm:col-span-4">
                             <label for="role_name" class="block text-sm font-medium text-gray-700">Rôle</label>
-                                <select id="role_name" name="role_name" class="block w-full mt-1">
+                                <select id="role_name" name="role_name" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     @isset($roles)
                                         @foreach($roles as $id => $name)
                                             <option value="{{ $name }}">{{ $name }}</option>

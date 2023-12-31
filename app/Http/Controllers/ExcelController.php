@@ -21,10 +21,15 @@ class ExcelController extends Controller
         $request->validate([
             'import_file' => 'required'
         ]);
-        
-        Excel::import(new EtudiantsImport,$request->import_file);
+        try {
+            Excel::import(new EtudiantsImport,$request->import_file);
+            $request->session()->flash('success', 'Mise à jour éffectuée');
 
-        $request->session()->flash('success', 'Mise à jour éffectuée');
+        } catch (\Throwable $th) {
+            $request->session()->flash('error', 'Vérifier que le fichier est conforme au modèle et ne contient pas de doublons.');
+        }
+        
+
            
         return back();
     }

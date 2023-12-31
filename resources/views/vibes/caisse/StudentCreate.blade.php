@@ -53,7 +53,6 @@
             
 
             
-
             <div class="mt- md:mt-0 md:col-span-2">
                 
                 <form action="{{route('store.student',null,false)}}" method="POST" enctype="multipart/form-data">
@@ -61,13 +60,6 @@
                   <div class="overflow-hidden shadow sm:rounded-md">
                     <div class="px-4 py-5 bg-white sm:p-6">
                       <div class="grid grid-cols-6 gap-6">
-                         <div class="col-span-6 md:col-span-2 sm:col-span-3">
-                            <label for="matricule" class="block text-sm font-medium text-gray-700">Matricule</label>
-                            <input type="text" name="matricule" id="matricule" value="{{old('matricule')}}" autocomplete="matricule" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            @error('matricule')
-                           <div class="font-semibold text-center text-red-600">{{ $errors->first('matricule') }}  </div>
-                          @enderror
-                          </div>
             
                           <div class="col-span-6 md:col-span-2 sm:col-span-3">
                             <label for="nom" class="block text-sm font-medium text-gray-700">Nom</label>
@@ -84,14 +76,6 @@
                              <div class="font-semibold text-center text-red-600">{{ $errors->first('prenoms') }}  </div>
                             @enderror
                           </div>
-                       
-                          <div class="col-span-6 md:col-span-2 sm:col-span-3">
-                            <label for="filiere" class="block text-sm font-medium text-gray-700">Filier ou Niveau </label>
-                            <input type="text" name="filiere" id="filiere" autocomplete="filiere" value="{{old('filiere')}}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            @error('filiere')
-                             <div class="font-semibold text-center text-red-600">{{ $errors->first('filiere') }}  </div>
-                            @enderror
-                          </div>
           
                           <div class="col-span-6 md:col-span-2 sm:col-span-3">
                             <label for="email" class="block text-sm font-medium text-gray-700">Adresse Email</label>
@@ -101,11 +85,17 @@
                             @enderror
                           </div>
 
-                          <div class="col-span-6 md:col-span-2 sm:col-span-3">
-                            <label for="contacts" class="block text-sm font-medium text-gray-700">contact</label>
-                            <input type="tel" name="contacts" id="contacts" autocomplete="contacts" value="{{old('contacts')}}" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            @error('contacts')
-                             <div class="font-semibold text-center text-red-600">{{ $errors->first('contacts') }}  </div>
+                          <div class="col-span-6 md:col-span-2 sm:col-span-4">
+                            <label for="filiere" class="block text-sm font-medium text-gray-700">Filière & Niveau </label>
+                                <select name="filiere" id="filiere" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                    @isset($filieres)
+                                        @foreach($filieres as $id => $name)
+                                            <option value="{{ $name }}">{{ $name }}</option>
+                                        @endforeach
+                                    @endisset
+                                </select>
+                            @error('filiere')
+                             <div class="font-semibold text-center text-red-600">{{ $errors->first('filiere') }}  </div>
                             @enderror
                           </div>
           

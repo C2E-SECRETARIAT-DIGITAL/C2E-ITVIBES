@@ -4,6 +4,7 @@ namespace App\Imports;
 
 use App\Models\Etudiant;
 use Maatwebsite\Excel\Concerns\ToModel;
+use App\Http\Controllers\EtudiantController;
 
 class EtudiantsImport implements ToModel
 {
@@ -14,14 +15,17 @@ class EtudiantsImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Etudiant([
-            'matricule'     => $row[0],
-            'nom'    => $row[1], 
-            'prenoms'    => $row[2],
-            'niveau'    => $row[3], 
-            'filiere'    => $row[4],
-            'email'    => $row[5],
-            'contacts'    => $row[6], 
-        ]);
+        // dd($row);
+        $et = new Etudiant;
+
+        $et->matricule = 'ITVIBES-' . Etudiantcontroller::generateRandomString(8);
+        $et->tombola = EtudiantController::generateNumberTombola();
+        $et->nom = $row[0];
+        $et->prenoms = $row[1];
+        $et->filiere = $row[2];
+        $et->email = $row[3];
+        
+        $et->save();
+        return $et;
     }
 }

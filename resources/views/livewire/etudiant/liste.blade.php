@@ -50,15 +50,14 @@
                     <table class="min-w-full divide-y divide-gray-800">
                     <thead class="bg-gray-100">
                         <tr>
-                        
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                             Matricule
+                        </th> 
+                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                            Tombola
                         </th>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                             Nom et prenom
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                            Contact
                         </th>
                         @if ($routeName == "liste.student")
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
@@ -77,27 +76,18 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($etudiants as $key => $etudiant)
                         <tr>
-                            
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="flex items-center">
-                                
-                                    <div class="ml-4">
-                                        <div class="text-sm font-extrabold text-gray-900">
-                                            {{$etudiant->matricule}} 
-                                        </div>
-                                        
-                                    </div>
-                                </div>
+                            <td class="px-6 py-4 font-normal whitespace-nowrap">
+                                {{$etudiant->matricule}} 
+                            </td>
+                            <td class="px-6 py-4 font-normal whitespace-nowrap">
+                                No-{{$etudiant->tombola < 10 ? '00'.$etudiant->tombola : ($etudiant->tombola < 100 ? '0'.$etudiant->tombola : $etudiant->tombola)}} 
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-670">{{$etudiant->nom}}</div>
                                 <div class="text-sm font-semibold text-gray-500">{{$etudiant->prenoms}}</div>
                             </td>
-                            
-                            <td class="px-6 py-4 font-normal whitespace-nowrap">
-                                {{$etudiant->contacts}} 
-                            </td>
+
             
                             @if ($routeName == "liste.student")
                             <td class="px-6 py-4 whitespace-nowrap ">

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+   
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,6 +19,21 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+            }
+            .relative{
+                background: -webkit-linear-gradient(246deg, #ffba06,#480e8b,#46078d);
+                color:#fff;
+            }
+            .relative a{
+                border:2px solid #fff;
+                padding:15px;
+                color:#fff;
+                text-decoration:none;
+                font-weight:bold;
+                transition:background .3s ease-in-out;
+            }
+            .relative a:hover{
+                background: #46078d;
             }
         </style>
     </head>
@@ -46,10 +62,9 @@
                 <div class="col-span-8 px-8 text-center md:text-xl md:col-span-4 md:h-full md:flex md:items-center ">
                    
                     <div>
-                        <span class="text-xl font-bold md:text-3xl ">Bienvenue sur l'app-Vibes</span>
-                        <p class="">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ullam, laboriosam numquam ipsum recusandae e
-                            a deleniti necessitatibus eligendi ut commodi esse molestias nemo fugiat quasi beatae quia sint totam nesciunt.
+                        <span class="text-xl font-bold md:text-3xl m-5">Bienvenue sur l'app-Vibes</span>
+                        <p class="m-4">
+                            Bienvenue sur l'application Vibes, un outil conçu pour chaque membre du bureau afin de contribuer au succès continu de l'IT VIBES. Ensemble, nous formons une équipe engagée dans l'innovation, la collaboration et l'atteinte de nos objectifs communs.
                         </p>
 
                     </div>

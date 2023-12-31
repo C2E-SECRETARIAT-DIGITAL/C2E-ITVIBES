@@ -54,24 +54,24 @@
             @endif
 
             <div class="grid grid-cols-8 md:px-28">
-                <div class="px-8 text-center md:col-span-3">
-                    <img src="{{asset('img/itvibeslogo.png')}}"  class="h-10 md:h-96 md:w-96" alt="ItVibes">
+                <div class="px-8 text-center md:col-span-8 w-1000">
+                    <img src="{{asset('img/itvibesblanc.png')}}"  class="h-10 md:h-96 md:w-96" alt="ItVibes">
                     
                 </div>
 
                 <div class="col-span-8 px-8 text-center md:text-xl md:col-span-4 md:h-full md:flex md:items-center ">
                    
-                    <div>
+                    <!-- <div>
                         <span class="text-xl font-bold md:text-3xl m-5">Bienvenue sur l'app-Vibes</span>
                         <p class="m-4">
                             Bienvenue sur l'application Vibes, un outil conçu pour chaque membre du bureau afin de contribuer au succès continu de l'IT VIBES. Ensemble, nous formons une équipe engagée dans l'innovation, la collaboration et l'atteinte de nos objectifs communs.
                         </p>
 
-                    </div>
+                    </div> -->
                     <div class="mt-4 md:hidden">
                         
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="px-3 py-2 text-sm text-white bg-indigo-800 rounded-md dark:text-gray-500">Acceuil</a>
+                            <a href="{{ route('dashboard',null,false) }}" class="px-3 py-2 text-sm text-white bg-indigo-800 rounded-md dark:text-gray-500">Acceuil</a>
                         @else
                             <a href="{{ route('login') }}" class="px-3 py-2 text-sm text-white bg-indigo-800 rounded-md dark:text-gray-500">Se connecter</a>
                         @endauth

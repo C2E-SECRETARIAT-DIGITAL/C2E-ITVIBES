@@ -60,7 +60,7 @@
 
 
                             <td class="items-center">
-                                @if ($user->email !== 'admin@gmail.com')
+                                @if (auth()->user()->role_name == 'Administrateur' && $user->email != auth()->user()->email)
                                     <form id="supUser" style="" action="{{ route('delete.user', $user->id, false) }}" class="items-center" method="post" enctype="multipart/form-data">
                                         {{ csrf_field() }}
                                         <button class="px-3 py-2 mt-0 font-bold text-white bg-red-600 rounded-md"> Supprimer </button>  

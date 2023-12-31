@@ -20,13 +20,13 @@ class Liste extends Component
     {
         $this->routeName = Route::currentRouteName();
         return view('livewire.etudiant.liste', [
-            'etudiants'  => etudiant::where('nom', 'LIKE', "%{$this->searchName}%")
+            'etudiants'  => Etudiant::where('nom', 'LIKE', "%{$this->searchName}%")
                                 ->Where('matricule', 'LIKE', "%{$this->searchMaticule}%")
                                 ->orderBy('created_at', 'DESC')
                                 ->paginate(6),
 
-            'etudiant_entree'  => etudiant::where('entree', true)->count(),
-            'etudiant_non_entree'  => etudiant::all()->count()
+            'etudiant_entree'  => Etudiant::where('entree', true)->count(),
+            'etudiant_non_entree'  => Etudiant::all()->count()
         ]);
     }
     

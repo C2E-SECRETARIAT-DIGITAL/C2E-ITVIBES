@@ -9,4 +9,9 @@ class Etudiant extends Model
 {
     use HasFactory;
     protected $guarded = []; 
+
+    public function filiere()
+    {
+        return $this->belongsTo(Filiere::class, 'filiere', 'name');
+    }
 }

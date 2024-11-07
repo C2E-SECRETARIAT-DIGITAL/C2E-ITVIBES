@@ -12,7 +12,7 @@
                 <div class="grid p-4 md:grid-cols-8 ">
 
                     <div class="px-8 w-96 text-center md:col-span-3">
-                        <img src="{{asset('img/itvibeslogo.png')}}" class="w-96 h-64 md:h-96 md:w-96" alt="ItVibes">
+                        <img src="{{asset('img/logoITPAIYASansFond.png')}}" class="w-96 h-64 md:h-96 md:w-96" alt="ITPAIYA">
                     </div>
 
                     <div class="text-center md:col-span-5 mt-12">
@@ -37,7 +37,7 @@
                                     <div class="px-4 py-2 -mx-3">
                                         <div class="mx-3">
                                             <span class="font-bold text-green-500 dark:text-green-400"
-                                            >IT-VIBES </span
+                                            >IT-PAIYA </span
                                             >
                                             <p class="text-sm text-gray-600 dark:text-gray-200">
                                             {{$message}}
@@ -70,7 +70,7 @@
                                     <div class="px-4 py-2 -mx-3">
                                         <div class="mx-3">
                                             <span class="font-bold text-red-500 dark:text-red-400"
-                                            >IT-Vibes </span
+                                            >IT-PAIYA </span
                                             >
                                             <p class="text-sm text-gray-600 dark:text-gray-200">
                                             {{$message}}
@@ -103,7 +103,7 @@
                                     <div class="px-4 py-2 -mx-3">
                                         <div class="mx-3">
                                             <span class="font-bold text-amber-500 dark:text-amber-400"
-                                            >IT-VIBES </span
+                                            >IT-PAIYA </span
                                             >
                                             <p class="text-sm text-gray-600 dark:text-gray-200">
                                             {{$message}}

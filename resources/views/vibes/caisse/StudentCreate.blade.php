@@ -13,7 +13,7 @@
             <div class="flex justify-between">
 
                 <div class="px-4 py-4 mx:px-12 ">
-                    <span class="text-base font-bold md:text-2xl md:px-6">Vibes-Ticket</span>
+                    <span class="text-base font-bold md:text-2xl md:px-6">Paiya-Ticket</span>
                 </div>
 
                 @if ($message = Session::get('success'))
@@ -36,7 +36,7 @@
                             <div class="px-4 py-2 -mx-3">
                                 <div class="mx-3">
                                     <span class="font-bold text-green-500 dark:text-green-400"
-                                    >IT-VIBES </span
+                                    >IT-PAIYA </span
                                     >
                                     <p class="text-xs text-gray-600 md:text-sm dark:text-gray-200">
                                     {{$message}}

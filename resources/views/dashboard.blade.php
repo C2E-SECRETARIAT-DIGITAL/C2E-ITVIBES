@@ -10,7 +10,7 @@
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
                 
                 <div class="justify-between hidden px-20 py-4 md:flex ">
-                    <img src="{{asset('img/itvibeslogo.png')}}"  class="h-96 w-96 " alt=" C2E">
+                    <img src="{{asset('img/logoITPAIYASansFond.png')}}"  class="h-96 w-96 " alt=" C2E">
                     
                     <div class="w-96 flex justify-center items-center">
                         <img src="{{asset('img/C2E.jpeg')}}"  class="w-96 h-29" alt=" C2E">

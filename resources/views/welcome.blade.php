@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>C2E-It Vibes</title>
+        <title>C2E-It PAIYA</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -21,19 +21,20 @@
                 font-family: 'Nunito', sans-serif;
             }
             .relative{
-                background: -webkit-linear-gradient(246deg, #ffba06,#480e8b,#46078d);
+                /*background: -webkit-linear-gradient(246deg, #ffba06,#480e8b,#46078d);*/
                 color:#fff;
             }
             .relative a{
-                border:2px solid #fff;
+                border-radius: 4px;
                 padding:15px;
+                background-color: #574baa;
                 color:#fff;
                 text-decoration:none;
                 font-weight:bold;
-                transition:background .3s ease-in-out;
+                transition: background .3s ease-in-out;
             }
             .relative a:hover{
-                background: #46078d;
+                background: #ffaeff;
             }
         </style>
     </head>
@@ -55,15 +56,14 @@
 
             <div class="grid grid-cols-8 md:px-28">
                 <div class="px-8 text-center md:col-span-8 w-1000">
-                    <img src="{{asset('img/itvibesblanc.png')}}"  class="h-10 md:h-96 md:w-96" alt="ItVibes">
+                    <img src="{{asset('img/logoITPAIYASansFond.png')}}"  class="h-10 md:h-96 md:w-96" alt="ItPaiya">
                     
                 </div>
 
                 <div class="col-span-8 px-8 text-center md:text-xl md:col-span-4 md:h-full md:flex md:items-center ">
-                   
                     <!-- <div>
                         <span class="text-xl font-bold md:text-3xl m-5">Bienvenue sur l'app-Vibes</span>
-                        <p class="m-4">
+                        <p class="m-4 text-black">
                             Bienvenue sur l'application Vibes, un outil conçu pour chaque membre du bureau afin de contribuer au succès continu de l'IT VIBES. Ensemble, nous formons une équipe engagée dans l'innovation, la collaboration et l'atteinte de nos objectifs communs.
                         </p>
 
@@ -71,9 +71,9 @@
                     <div class="mt-4 md:hidden">
                         
                         @auth
-                            <a href="{{ route('dashboard',null,false) }}" class="px-3 py-2 text-sm text-white bg-indigo-800 rounded-md dark:text-gray-500">Acceuil</a>
+                            <a href="{{ route('dashboard',null,false) }}" class="px-3 py-2 text-sm text-white bg-pink-500 rounded-md dark:text-gray-500">Acceuil</a>
                         @else
-                            <a href="{{ route('login') }}" class="px-3 py-2 text-sm text-white bg-indigo-800 rounded-md dark:text-gray-500">Se connecter</a>
+                            <a href="{{ route('login') }}" class="px-3 py-2 text-sm text-white bg-pink-500 rounded-md dark:text-gray-500">Se connecter</a>
                         @endauth
                     </div>
 

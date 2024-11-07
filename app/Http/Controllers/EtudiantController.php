@@ -53,7 +53,7 @@ class EtudiantController extends Controller
         ]);
         
         $et = etudiant::create($validateData);
-        $et->matricule = 'ITVIBES-' . $this->generateRandomString(8);
+        $et->matricule = 'ITPAIYA-' . $this->generateRandomString(8);
         $et->tombola = $this->generateNumberTombola();
         $et->save();
 
@@ -93,7 +93,7 @@ class EtudiantController extends Controller
             $etudiant->entree = true ;
             $etudiant->save();
 
-            $request->session()->flash('success', 'Bienvenue à l\'IT Vibes 2024');
+            $request->session()->flash('success', 'Bienvenue à l\'IT PAIYA 2024');
         }
         else{
             $request->session()->flash('error', 'Déjà scanné !!!');
@@ -106,7 +106,7 @@ class EtudiantController extends Controller
         $etudiant = etudiant::find($id);    
         $m = Crypt::encryptString($etudiant->matricule);
         
-        $qr = base64_encode(QrCode::format('svg')->size(110)->errorCorrection('H')->generate($m));
+        $qr = base64_encode(QrCode::format('svg')->size(105)->errorCorrection('H')->generate($m));
        
         $tombola = $etudiant->tombola;
         if($tombola < 10){
@@ -116,7 +116,7 @@ class EtudiantController extends Controller
         }
 
         $data = [
-            'title' => 'IT-VIBES',
+            'title' => 'IT-PAIYA',
             'date' => date('d-m-Y à h:i:s A'),
             'nom' => $etudiant->nom,
             'prenoms' => $etudiant->prenoms,
@@ -134,7 +134,7 @@ class EtudiantController extends Controller
     static public function sendTicketMail($etudiant)
     {   
         $maildata = [
-            'title' => 'Ticket IT VIBES 2024',
+            'title' => 'Ticket IT PAIYA 2024',
             'etudiant' => $etudiant
         ];
 
@@ -149,7 +149,7 @@ class EtudiantController extends Controller
         }
 
         $data = [
-            'title' => 'IT-VIBES',
+            'title' => 'IT-PAIYA',
             'date' => date('d-m-Y à h:i:s A'),
             'nom' => $etudiant->nom,
             'prenoms' => $etudiant->prenoms,

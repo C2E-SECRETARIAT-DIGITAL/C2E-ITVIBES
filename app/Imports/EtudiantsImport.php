@@ -18,7 +18,7 @@ class EtudiantsImport implements ToModel
         // dd($row);
         $et = new Etudiant;
 
-        $et->matricule = 'ITVIBES-' . Etudiantcontroller::generateRandomString(8);
+        $et->matricule = 'ITPAIYA-' . Etudiantcontroller::generateRandomString(8);
         $et->tombola = EtudiantController::generateNumberTombola();
         $et->nom = $row[0];
         $et->prenoms = $row[1];

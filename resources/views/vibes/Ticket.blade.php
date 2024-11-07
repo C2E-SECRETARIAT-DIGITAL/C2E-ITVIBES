@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href='../../../public/css/app.css'>
+    
     <style>
-        
+
+    body {
+        font-family: 'enigma-bold', sans-serif;
+    }
+    
     .ticket {
+        font-family: 'enigma-bold', sans-serif;
         width: 700px;
         height: 300px;
 
@@ -20,78 +27,45 @@
 
     h4 {
         position: absolute;
-        top: 35px;
-        left: 65px;
-
-        color: #41008A;
-        font-family: 'Myriad Pro', sans-serif;
+        bottom: -1.5px;
+        left: 238px;
+        text-align: left;
+        color: #fff;
         font-size: 20px;
+        font-family: "enigma-bold", sans-serif;
     }
-
+    
     .qrcode {
         background-color: black;
-        width: 110px;
-        height: 110px;
+        width: 105px;
+        height: 105px;
+        border-radius: 10px;
 
         position: absolute;
-        top: 109px;
-        left: 58px;
-    }
-
-    .img1 {
-        width: 30px;
-        height: 30px;
-
-        position: absolute;
-        bottom: 15px;
-        left: 40px;
-    }
-
-    .img2 {
-        width: 30px;
-        height: 30px;
-
-        position: absolute;
-        bottom: 15px;
-        left: 85px;
-    }
-
-    .img3 {
-        width: 30px;
-        height: 30px;
-
-        position: absolute;
-        bottom: 15px;
-        left: 125px;
-    }
-
-    .img4 {
-        width: 30px;
-        height: 30px;
-
-        position: absolute;
-        bottom: 15px;
-        left: 165px;
+        top: 99.5px;
+        right: 43px;
     }
 
     .nom {
-        color: #ffffff;
-        font-family: 'BEASIGNE', sans-serif;
-        font-size: 20px;
+        color: #000;
+        font-size: 18px;
+        text-align: center;
 
         position: absolute;
-        top: 105px;
-        left: 270px;
+        bottom: 0px;
+        right: 52px;
+        font-family: "enigma-bold", sans-serif;
     }
-
+    
     .prenoms {
-        color: #ffffff;
-        font-family: 'BEASIGNE', sans-serif;
-        font-size: 20px;
-
+        color: #000;
+        font-size: 18px;
+        text-align: center;
+        
+        font-family: "enigma-bold", sans-serif;
         position: absolute;
-        top: 130px;
-        left: 270px;
+        bottom: -15px;
+        right: 52px;
     }
 
 
@@ -99,27 +73,17 @@
 </head>
 <body>
 
-<div class="ticket">
-    <img src="{{public_path().'/img/fond.png'}}" width="100%" alt="fondTicket" style="z-index:-10;position: absolute;">
-    <!-- <img src="{{asset('img/fond.png')}}" width="100%" alt="fondTicket" style="z-index:-10;position: absolute;"> -->
 
-        <h4>No. {{ $tombola }}</h4>
+<div class="ticket">
+    <img src="{{public_path().'/img/fond2024.jpg'}}" width="100%" alt="fondTicket" style="z-index:-10;position: absolute;">
+        <h4>{{ $tombola }}</h4>
         <div class="qrcode">
             <img src="data:image/png;base64, {!! $qr_code !!}">
         </div>
-        <div class="img1"><img width="100%" src="{{public_path().'/img/c2elogo.png'}}" alt=""></div>
-        <!-- <div class="img1"><img width="100%" src="{{asset('img/c2elogo.png')}}" alt=""></div> -->
-        <div class="img2"><img width="100%" src="{{public_path().'/img/itvibeslogo.png'}}" alt=""></div>
-        <!-- <div class="img2"><img width="100%" src="{{asset('img/itvibeslogo.png')}}" alt=""></div> -->
-        <div class="img3"><img width="100%" src="{{public_path().'/img/c2elogo.png'}}" alt=""></div>
-        <!-- <div class="img3"><img width="100%" src="{{asset('img/c2elogo.png')}}" alt=""></div> -->
-        <div class="img4"><img width="100%" src="{{public_path().'/img/itvibeslogo.png'}}" alt=""></div>
-        <!-- <div class="img4"><img width="100%" src="{{asset('img/itvibeslogo.png')}}" alt=""></div> -->
         <h5 class="nom">{{ $nom }}</h5>
         <h5 class="prenoms">{{ $prenoms }}</h5>
 </div>
 
 
-    
 </body>
 </html>
